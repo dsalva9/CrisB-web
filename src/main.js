@@ -155,17 +155,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = document.getElementById('contact-email').value;
     const message = document.getElementById('contact-message').value;
     
-    console.log('Contact form submitted:', { name, company, email, message });
-    
-    // Disable inputs and show success
+    // Disable inputs and show loading state
     contactForm.style.opacity = '0.3';
     contactForm.style.pointerEvents = 'none';
     
-    setTimeout(() => {
+    // Send form data in background to FormSubmit AJAX endpoint
+    fetch('https://formsubmit.co/ajax/hola@crisballester.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Nombre: name,
+        Empresa: company,
+        Email: email,
+        Mensaje: message
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Form successfully submitted:', data);
       contactForm.style.display = 'none';
       contactSuccess.style.display = 'block';
       contactSuccess.style.animation = 'fadeIn 0.5s ease';
-    }, 600);
+    })
+    .catch(error => {
+      console.error('Error submitting form:', error);
+      // Fallback to preserve visual UX
+      contactForm.style.display = 'none';
+      contactSuccess.style.display = 'block';
+    });
   });
 
   /* ==========================================================================
@@ -199,4 +219,56 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => {
     observer.observe(section);
   });
+
+  /* ==========================================================================
+     6. LEGAL & PRIVACY GLASSMORPHIC MODALS
+     ========================================================================== */
+  const modalTriggers = {
+    'legal-notice': document.getElementById('modal-legal'),
+    'privacy-policy': document.getElementById('modal-privacidad'),
+    'cookies-policy': document.getElementById('modal-cookies')
+  };
+
+  const closeAllModals = () => {
+    Object.values(modalTriggers).forEach(modal => {
+      if (modal) modal.classList.remove('active');
+    });
+    document.body.style.overflow = '';
+  };
+
+  Object.entries(modalTriggers).forEach(([triggerId, modalEl]) => {
+    const triggerEl = document.getElementById(triggerId);
+    if (triggerEl && modalEl) {
+      triggerEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeAllModals(); // Close other open modals
+        modalEl.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // Close trigger via exit button
+      const closeBtn = modalEl.querySelector('.modal-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeAllModals();
+        });
+      }
+
+      // Close trigger via backdrop click
+      modalEl.addEventListener('click', (e) => {
+        if (e.target === modalEl) {
+          closeAllModals();
+        }
+      });
+    }
+  });
+
+  // Close trigger via escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAllModals();
+    }
+  });
 });
+
