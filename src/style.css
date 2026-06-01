@@ -1,0 +1,1419 @@
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+/* ==========================================================================
+   DESIGN TOKENS & VARIABLES (Century Gothic Redesign)
+   ========================================================================== */
+:root {
+  /* Colors */
+  --bg-primary: #f6f6f4;      /* Luxurious, light warm stone-white */
+  --bg-secondary: #ffffff;    /* Pure white for layout cards */
+  --bg-tertiary: #fafaf9;     /* Ultra-light warm stone */
+  --bg-dark-slate: #1e1c1a;   /* Soft, luxury executive warm charcoal/stone */
+  --bg-dark-hover: #2a2725;
+  
+  --text-primary: #111111;    /* Elegant near-black */
+  --text-secondary: #4a4a4a;  /* Refined charcoal for readable copy */
+  --text-muted: #888884;      /* Soft grey */
+  --text-white: #ffffff;
+  
+  --accent-gold: #b38f4d;     /* Refined matte gold/bronze */
+  --accent-gold-hover: #9c7a3d;
+  
+  --accent-green: #1f7a4d;    /* Subdued professional green for WhatsApp */
+  --accent-green-hover: #175c3a;
+  
+  --border-color: #e2e2df;    /* Fine, crisp grey boundaries */
+  --border-color-light: #ecece9;
+  
+  /* Sizing */
+  --container-max-width: 1140px;
+  --header-height: 90px;
+  --border-radius-sm: 4px;    /* Crisper, modern geometric corners */
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Typography - Custom Century Gothic and fallbacks */
+  --font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'Questrial', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-out;
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-slow: 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   BASE & RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+  font-weight: 400; /* Century Gothic looks best in lighter/medium weights */
+  color: var(--text-primary);
+  letter-spacing: 0.12em; /* Wide executive style */
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+}
+
+h2 {
+  font-size: 1.85rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+h3 {
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+.text-gold {
+  color: var(--accent-gold);
+}
+
+/* Elegant border underlines instead of grids */
+.title-underline {
+  display: block;
+  width: 50px;
+  height: 1px;
+  background-color: var(--text-primary);
+  margin: 1rem auto 0 auto;
+}
+
+.title-underline.left {
+  margin: 1rem 0 0 0;
+}
+
+/* ==========================================================================
+   LAYOUTS & CONTAINER
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.section {
+  padding: 120px 0;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.section-bg-alt {
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color-light);
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 80px auto;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   INTERACTIVE BUTTONS
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 35px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--bg-secondary);
+}
+
+.btn-white:hover {
+  background-color: transparent;
+  color: var(--bg-secondary);
+  border-color: var(--bg-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background-color: var(--bg-dark-slate);
+  color: var(--text-white);
+  border-color: var(--bg-dark-slate);
+}
+
+.btn-dark:hover {
+  background-color: transparent;
+  color: var(--bg-dark-slate);
+  border-color: var(--bg-dark-slate);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HEADER / NAVIGATION
+   ========================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: var(--transition-normal);
+  border-bottom: 1px solid transparent;
+}
+
+header.scrolled {
+  background: rgba(246, 246, 244, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-color);
+  height: 80px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-twig {
+  width: 28px;
+  height: 28px;
+  fill: var(--text-primary);
+}
+
+.logo {
+  font-family: var(--font-family);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent-gold);
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 15px;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: var(--text-primary);
+  transition: var(--transition-normal);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile Overlay Menu */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+}
+
+.mobile-menu-links a {
+  font-size: 1.25rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ==========================================================================
+   HERO SECTION (Luxury Centered Glassmorphism Redesign)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+/* Floating Light Cream Esmerilado Glass Card (Symmetrical on desktop & mobile) */
+.hero-floating-panel {
+  background: rgba(246, 246, 244, 0.48); /* Highly translucent warm-stone esmerilado glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text-primary);
+  padding: 55px 60px;
+  border-radius: 24px; /* Generous rounded corners matching mobile */
+  max-width: 740px;
+  width: 100%;
+  text-align: center; /* Pristine centered presentation */
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1); /* Soft executive shadow */
+  animation: scaleUp var(--transition-slow) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.6); /* Fine glass boundary edge */
+}
+
+.hero-panel-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.hero-panel-title {
+  color: var(--text-primary) !important; /* Premium near-black executive text */
+  font-size: 2.25rem;
+  font-weight: 300; /* Thin, high-status weight */
+  letter-spacing: 0.04em;
+  margin-bottom: 2.25rem;
+  line-height: 1.45;
+  text-transform: none !important; /* Soft sentence-case readability (no caps shouting!) */
+}
+
+.hero-panel-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-panel-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center; /* Symmetrical centered actions */
+  flex-wrap: wrap;
+}
+
+.hero-image-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(246, 246, 244, 0.02), rgba(246, 246, 244, 0.02)), url('/boardroom.png');
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-slow);
+  z-index: 1; /* Sits behind the floating panel layers */
+}
+
+.hero-section:hover .hero-image-panel {
+  transform: scale(1.025); /* Elite micro-zoom on the background image */
+}
+
+/* ==========================================================================
+   PAIN POINTS / EMPATHY (Ultra-Minimalist white panels)
+   ========================================================================== */
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px; /* Minimal border divider style */
+  background-color: var(--border-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.pain-card {
+  background-color: var(--bg-secondary);
+  padding: 45px 40px;
+  transition: all var(--transition-normal);
+}
+
+.pain-card:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.pain-icon {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.pain-title {
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.pain-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   SERVICES (Flat Elegant Layout)
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-md);
+  padding: 50px 40px;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2; /* Row 1: 3 cards (2+2+2 = 6 fractions) */
+}
+
+.service-card.service-row-2 {
+  grid-column: span 3; /* Row 2: 2 cards (3+3 = 6 fractions) */
+}
+
+.service-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+}
+
+.service-num {
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.service-title {
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.service-features {
+  list-style: none;
+  border-top: 1px solid var(--border-color-light);
+  padding-top: 1.5rem;
+}
+
+.service-features li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-features li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   INTERACTIVE AUTODIAGNOSTICO (Minimalist Scorecard Wizard)
+   ========================================================================== */
+.quiz-container {
+  max-width: 740px;
+  margin: 0 auto;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--accent-gold);
+  width: 0%;
+  transition: var(--transition-normal);
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.quiz-step-count {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.quiz-step {
+  display: none;
+  animation: fadeIn var(--transition-normal);
+}
+
+.quiz-step.active {
+  display: block;
+}
+
+.quiz-question {
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  text-transform: none; /* Let question capitalization flow naturally */
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.quiz-option {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-sm);
+  padding: 22px 28px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-align: left;
+}
+
+.quiz-option:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--text-primary);
+}
+
+.quiz-option.selected {
+  background-color: var(--bg-secondary);
+  border-color: var(--accent-gold);
+}
+
+.quiz-option-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quiz-option.selected .quiz-option-indicator {
+  border-color: var(--accent-gold);
+  background-color: var(--accent-gold);
+}
+
+.quiz-option span {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.quiz-option.selected span {
+  color: var(--text-primary);
+}
+
+.quiz-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--border-color-light);
+  padding-top: 2rem;
+}
+
+/* Quiz Diagnostic Results Minimalist Scorecard */
+.quiz-result-scorecard {
+  text-align: center;
+  animation: scaleUp var(--transition-slow) forwards;
+}
+
+.scorecard-metric {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-gold);
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: var(--accent-gold);
+  margin-bottom: 2rem;
+}
+
+.scorecard-title {
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.scorecard-summary {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.7;
+  text-transform: none;
+}
+
+.diagnostic-leads-form {
+  max-width: 440px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-sm);
+  padding: 12px 18px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: var(--transition-fast);
+}
+
+.form-control:focus {
+  outline: none;
+  background-color: var(--bg-secondary);
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   ABOUT CRIS BALLESTER SECTION (High-end Split Screen Redesign)
+   ========================================================================== */
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Left Image Column */
+.about-img-container {
+  position: relative;
+  min-height: 550px;
+  overflow: hidden;
+}
+
+.about-consultant-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Floating overlay card with quote in the middle */
+.about-floating-quote-card {
+  position: absolute;
+  bottom: 40px;
+  right: -50px;
+  background: rgba(30, 41, 59, 0.55); /* Matches hero soft translucent slate-gray */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--text-white);
+  padding: 30px 35px;
+  max-width: 330px;
+  border-radius: 16px; /* Highly rounded corners */
+  z-index: 10;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+  border-left: 3px solid rgba(255, 255, 255, 0.75); /* Cohesive white vertical accent bar! */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-floating-quote-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-transform: none;
+}
+
+/* Right Content Column */
+.about-content-column {
+  padding: 80px 80px 80px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* Vertical Text Sidebar (as seen on Prunacore screenshot) */
+.about-vertical-sidebar {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right center;
+  white-space: nowrap;
+}
+
+.vertical-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.about-twig-separator {
+  width: 48px;
+  height: 48px;
+  fill: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.about-intro-text {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+.about-signature-block {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color-light);
+  padding-top: 1.5rem;
+}
+
+.about-signature-block h4 {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.about-signature-block p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   CONTACT SECTION (Ultra-Minimalist Executive Layout)
+   ========================================================================== */
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+}
+
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-headline h3 {
+  font-size: 1.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-channels {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--accent-gold);
+  background-color: var(--bg-secondary);
+}
+
+.contact-item-details h4 {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 2px;
+}
+
+.contact-item-details p {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 0;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.contact-form-block {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: 50px;
+}
+
+/* ==========================================================================
+   FOOTER (Clean & Symmetrical)
+   ========================================================================== */
+footer {
+  background-color: var(--bg-tertiary);
+  border-top: 1px solid var(--border-color);
+  padding: 80px 0 40px 0;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer-brand {
+  max-width: 340px;
+}
+
+.footer-brand .logo-container {
+  margin-bottom: 1.5rem;
+}
+
+.footer-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: flex;
+  list-style: none;
+  gap: 60px;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-links-column h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-links-column a {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+}
+
+.footer-links-column a:hover {
+  color: var(--accent-gold);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color-light);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-legal-links a:hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   WHATSAPP FLOATING BUTTON (Refined Matte Look)
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 35px;
+  right: 35px;
+  background-color: var(--accent-green);
+  color: white;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  box-shadow: 0 10px 25px rgba(31, 122, 77, 0.25);
+  z-index: 998;
+  transition: all var(--transition-normal);
+}
+
+.whatsapp-float:hover {
+  background-color: var(--accent-green-hover);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 30px rgba(31, 122, 77, 0.35);
+}
+
+.whatsapp-float svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   LANGUAGE SELECTOR DROPDOWN (i18n Styles)
+   ========================================================================== */
+.lang-selector-container {
+  position: relative;
+  margin-right: 25px;
+  display: inline-block;
+}
+
+.lang-selector-btn {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+}
+
+.lang-selector-btn:hover {
+  color: var(--text-primary);
+}
+
+.lang-chevron {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  transition: transform var(--transition-fast);
+}
+
+.lang-selector-container:hover .lang-chevron {
+  transform: translateY(1px);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(246, 246, 244, 0.98);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 8px 0;
+  min-width: 140px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: all var(--transition-normal);
+}
+
+.lang-selector-container:hover .lang-dropdown,
+.lang-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 10px 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  width: 100%;
+}
+
+.lang-option:hover {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.lang-option.active {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+/* Mobile selector spacing */
+.mobile-lang-selector {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+.mobile-lang-btn {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-lang-btn.active {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE-FIRST BREAKPOINTS)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  h1 { font-size: 2.2rem; }
+  .hero-left-col {
+    width: 50%;
+    padding: 120px 40px 60px 40px;
+  }
+  .hero-right-col {
+    width: 50%;
+  }
+  .hero-panel-title {
+    font-size: 1.85rem;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  .service-card, .service-card.service-row-2 {
+    grid-column: span 1;
+  }
+  .service-card.service-row-2:last-child {
+    grid-column: span 2; /* Center the odd 5th service on tablet */
+  }
+  .about-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .about-img-container {
+    min-height: 400px;
+  }
+  .about-floating-quote-card {
+    right: 40px;
+    bottom: -30px;
+    max-width: 80%;
+  }
+  .about-content-column {
+    padding: 70px 40px 60px 40px;
+  }
+  .about-vertical-sidebar {
+    display: none;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links, .nav-cta {
+    display: none;
+  }
+  .header-container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    flex-wrap: nowrap !important; /* Strictly prevent header elements from wrapping */
+  }
+  .logo-container, .lang-selector-container, .hamburger {
+    flex-shrink: 0 !important; /* Defensive sizing: never squish header items */
+  }
+  .logo {
+    font-size: clamp(0.72rem, 3.2vw, 0.9rem) !important; /* Fluid, perfect viewport text scaling */
+    letter-spacing: 0.04em !important;
+  }
+  .logo-twig {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .logo-container {
+    gap: 4px !important;
+  }
+  .lang-selector-container {
+    margin-left: auto !important;
+    margin-right: 6px !important; /* Tighter padding for narrow devices */
+  }
+  .lang-selector-btn {
+    padding: 4px 5px !important;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.02em !important;
+  }
+  .lang-chevron {
+    display: none !important; /* Hide chevron on mobile for extreme neatness */
+  }
+  .hamburger {
+    display: flex;
+  }
+  .section {
+    padding: 80px 0;
+  }
+  h2 { font-size: 1.5rem; }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-card, .service-card.service-row-2 {
+    grid-column: auto !important;
+  }
+  .hero-image-panel {
+    background-position: center center !important; /* Centered background to display the yachts and sunny port view behind the glass card */
+    background-image: linear-gradient(rgba(246, 246, 244, 0.05), rgba(246, 246, 244, 0.15)), url('/boardroom.png') !important;
+    transform: scale(1.25) !important; /* Magnifies the beautiful stone building textures and wooden arches on mobile devices */
+    transform-origin: center center !important;
+  }
+  .hero-container {
+    padding: 100px 15px 40px 15px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .hero-floating-panel {
+    background: rgba(246, 246, 244, 0.48) !important; /* Soft, warm-stone esmerilado glass card */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 24px !important; /* highly rounded corners */
+    padding: 40px 24px !important; /* Cozy mobile padding inside card */
+    max-width: 95% !important;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
+  }
+  .hero-panel-title {
+    font-size: 1.35rem !important; /* Clean font size for mobile card */
+    letter-spacing: 0.05em !important;
+    line-height: 1.45 !important;
+    margin-bottom: 2rem !important;
+  }
+  .hero-panel-desc {
+    font-size: 0.85rem !important;
+    margin-bottom: 2rem !important;
+  }
+  .hero-panel-actions {
+    display: flex !important;
+    flex-direction: column !important; /* Stack vertically on mobile */
+    gap: 12px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding-left: 0 !important; /* Reset padding align for center */
+  }
+  .hero-panel-actions .btn {
+    width: 100% !important;
+    max-width: 290px !important; /* Premium identical width pills */
+    text-align: center !important;
+    white-space: nowrap !important; /* No text wrap */
+    font-size: 0.72rem !important;
+    padding: 12px 20px !important; /* Identical heights */
+    letter-spacing: 0.08em !important;
+  }
+  .contact-form-block {
+    padding: 35px 30px;
+  }
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-links {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.85rem; }
+  .hero-container {
+    padding: 100px 10px 30px 10px !important; /* Snugger mobile limits */
+  }
+  .hero-floating-panel {
+    padding: 30px 18px !important; /* Tighter padding inside the card for 320px screens */
+  }
+  .hero-panel-title {
+    font-size: 1.15rem !important; /* Perfectly scaled readable title inside card */
+    margin-bottom: 1.75rem !important;
+  }
+  .hero-panel-actions .btn {
+    max-width: 100% !important; /* Fill full width of card content area for neat layout */
+  }
+}
