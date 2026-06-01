@@ -111,7 +111,7 @@ export const translations = {
     footer_col2_title: "Serveis",
     footer_col3_title: "Contacte",
     footer_col3_palma: "Palma de Mallorca",
-    footer_copyright: "© 2026 CrisBallester.com. Tots els drets reservats. Dissenyat a Mallorca.",
+    footer_copyright: "© 2026 CrisBallester.com. Tots els drets reservats. Dissenyat a Mallorca. Desenvolupament web per <a href='https://websmallorca.es/' target='_blank'>Webs Mallorca</a>.",
     footer_legal_notice: "Avís Legal",
     footer_privacy_policy: "Política de Privacitat",
     footer_cookies_policy: "Política de Cookies"
@@ -228,7 +228,7 @@ export const translations = {
     footer_col2_title: "Servicios",
     footer_col3_title: "Contacto",
     footer_col3_palma: "Palma de Mallorca",
-    footer_copyright: "© 2026 CrisBallester.com. Todos los derechos reservados. Diseñado en Mallorca.",
+    footer_copyright: "© 2026 CrisBallester.com. Todos los derechos reservados. Diseñado en Mallorca. Desarrollo web por <a href='https://websmallorca.es/' target='_blank'>Webs Mallorca</a>.",
     footer_legal_notice: "Aviso Legal",
     footer_privacy_policy: "Política de Privacidad",
     footer_cookies_policy: "Política de Cookies"
@@ -345,7 +345,7 @@ export const translations = {
     footer_col2_title: "Services",
     footer_col3_title: "Contact",
     footer_col3_palma: "Palma de Mallorca",
-    footer_copyright: "© 2026 CrisBallester.com. All rights reserved. Designed in Mallorca.",
+    footer_copyright: "© 2026 CrisBallester.com. All rights reserved. Designed in Mallorca. Web development by <a href='https://websmallorca.es/' target='_blank'>Webs Mallorca</a>.",
     footer_legal_notice: "Legal Notice",
     footer_privacy_policy: "Privacy Policy",
     footer_cookies_policy: "Cookies Policy"
@@ -462,7 +462,7 @@ export const translations = {
     footer_col2_title: "Servizi",
     footer_col3_title: "Contatto",
     footer_col3_palma: "Palma di Maiorca",
-    footer_copyright: "© 2026 CrisBallester.com. Tutti i diritti riservati. Progettato a Maiorca.",
+    footer_copyright: "© 2026 CrisBallester.com. Tutti i diritti riservati. Progettato a Maiorca. Sviluppo web da <a href='https://websmallorca.es/' target='_blank'>Webs Mallorca</a>.",
     footer_legal_notice: "Note Legali",
     footer_privacy_policy: "Informativa sulla Privacy",
     footer_cookies_policy: "Informativa sui Cookie"
@@ -579,7 +579,7 @@ export const translations = {
     footer_col2_title: "Dienstleistungen",
     footer_col3_title: "Kontakt",
     footer_col3_palma: "Palma de Mallorca",
-    footer_copyright: "© 2026 CrisBallester.com. Alle Rechte vorbehalten. Entworfen auf Mallorca.",
+    footer_copyright: "© 2026 CrisBallester.com. Alle Rechte vorbehalten. Entworfen auf Mallorca. Webentwicklung durch <a href='https://websmallorca.es/' target='_blank'>Webs Mallorca</a>.",
     footer_legal_notice: "Impressum",
     footer_privacy_policy: "Datenschutzerklärung",
     footer_cookies_policy: "Cookie-Richtlinie"
