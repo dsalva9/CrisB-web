@@ -920,6 +920,72 @@ header.scrolled {
 }
 
 /* ==========================================================================
+   SPEAKING / CONVERSACIONES ESTRATEGICAS SECTION
+   ========================================================================== */
+.speaking-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.speaking-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-md);
+  padding: 45px 35px;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.speaking-card:hover {
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+}
+
+.speaking-num {
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  margin-bottom: 1.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.speaking-card-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.speaking-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+.speaking-card-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-gold);
+  transition: width var(--transition-normal);
+}
+
+.speaking-card:hover .speaking-card-border {
+  width: 100%;
+}
+
+/* ==========================================================================
    CONTACT SECTION (Ultra-Minimalist Executive Layout)
    ========================================================================== */
 .contact-container {
@@ -1278,6 +1344,10 @@ footer {
     grid-template-columns: 1fr;
     gap: 60px;
   }
+  .speaking-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1327,6 +1397,10 @@ footer {
   }
   .service-card, .service-card.service-row-2 {
     grid-column: auto !important;
+  }
+  .speaking-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
   .hero-image-panel {
     background-position: center center !important; /* Centered background to display the yachts and sunny port view behind the glass card */
