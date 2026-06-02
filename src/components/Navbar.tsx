@@ -76,36 +76,28 @@ export const Navbar: React.FC = () => {
             
             {/* Elegant Language Pill Toggle */}
             <div className="flex items-center border border-slate-200 rounded-full p-0.5 bg-slate-100/50 relative">
-              <button
-                onClick={() => changeLanguage('es')}
-                className={`w-12 py-1.5 font-sans text-xs font-bold rounded-full transition-all cursor-pointer relative z-10 ${
-                  language === 'es'
-                    ? 'text-white'
-                    : 'text-slate-500 hover:text-brand-forest'
-                }`}
-                style={{ minHeight: '44px' }} // tap size
-              >
-                ES
-              </button>
-              <button
-                onClick={() => changeLanguage('ca')}
-                className={`w-12 py-1.5 font-sans text-xs font-bold rounded-full transition-all cursor-pointer relative z-10 ${
-                  language === 'ca'
-                    ? 'text-white'
-                    : 'text-slate-500 hover:text-brand-forest'
-                }`}
-                style={{ minHeight: '44px' }} // tap size
-              >
-                CA
-              </button>
+              {(['es', 'ca', 'en', 'it', 'de'] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => changeLanguage(lang)}
+                  className={`w-11 py-1.5 font-sans text-xs font-bold rounded-full transition-all cursor-pointer relative z-10 ${
+                    language === lang
+                      ? 'text-white'
+                      : 'text-slate-500 hover:text-brand-forest'
+                  }`}
+                  style={{ minHeight: '44px' }}
+                >
+                  {lang.toUpperCase()}
+                </button>
+              ))}
               
               {/* Sliding Background Indicator */}
               <motion.div
                 layout
                 className="absolute top-0.5 bottom-0.5 rounded-full bg-brand-forest shadow-sm z-0"
                 style={{
-                  width: '48px',
-                  left: language === 'es' ? '2px' : '50px'
+                  width: '44px',
+                  left: `${(['es', 'ca', 'en', 'it', 'de'] as Language[]).indexOf(language) * 44 + 2}px`
                 }}
                 transition={{ type: 'spring', stiffness: 380, damping: 30 }}
               />
@@ -125,38 +117,6 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Menu Action Row */}
           <div className="flex items-center gap-3 lg:hidden">
-            
-            {/* Quick Language Toggle for Mobile */}
-            <div className="flex items-center border border-slate-200 rounded-full p-0.5 bg-slate-100/50 relative w-[90px]">
-              <button
-                onClick={() => changeLanguage('es')}
-                className={`w-10 py-1 font-sans text-[10px] font-bold rounded-full cursor-pointer relative z-10 ${
-                  language === 'es' ? 'text-white' : 'text-slate-500'
-                }`}
-                style={{ minHeight: '44px' }}
-              >
-                ES
-              </button>
-              <button
-                onClick={() => changeLanguage('ca')}
-                className={`w-10 py-1 font-sans text-[10px] font-bold rounded-full cursor-pointer relative z-10 ${
-                  language === 'ca' ? 'text-white' : 'text-slate-500'
-                }`}
-                style={{ minHeight: '44px' }}
-              >
-                CA
-              </button>
-              <motion.div
-                layout
-                className="absolute top-0.5 bottom-0.5 rounded-full bg-brand-forest shadow-sm z-0"
-                style={{
-                  width: '40px',
-                  left: language === 'es' ? '2px' : '42px'
-                }}
-                transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-              />
-            </div>
-
             {/* Premium Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -212,6 +172,33 @@ export const Navbar: React.FC = () => {
               </ul>
               
               <div className="w-full h-px bg-slate-200/80 my-2" />
+
+              {/* Language Selector inside mobile menu */}
+              <div className="flex items-center border border-slate-200 rounded-full p-0.5 bg-slate-100/50 relative w-fit mx-auto my-2">
+                {(['es', 'ca', 'en', 'it', 'de'] as Language[]).map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => changeLanguage(lang)}
+                    className={`w-10 py-1 font-sans text-xs font-bold rounded-full cursor-pointer relative z-10 transition-colors ${
+                      language === lang ? 'text-white' : 'text-slate-500'
+                    }`}
+                    style={{ minHeight: '44px' }}
+                  >
+                    {lang.toUpperCase()}
+                  </button>
+                ))}
+                <motion.div
+                  layout
+                  className="absolute top-0.5 bottom-0.5 rounded-full bg-brand-forest shadow-sm z-0"
+                  style={{
+                    width: '40px',
+                    left: `${(['es', 'ca', 'en', 'it', 'de'] as Language[]).indexOf(language) * 40 + 2}px`
+                  }}
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              </div>
+
+              <div className="w-full h-px bg-slate-200/80 my-1" />
 
               {/* Action Button inside mobile menu */}
               <motion.a

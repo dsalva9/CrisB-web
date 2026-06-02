@@ -5,7 +5,7 @@ import { ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const { copy } = useTranslation();
-  const [activeSlide, setActiveSlide] = useState<0 | 1>(0);
+  const [activeSlide, setActiveSlide] = useState<number>(0);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -29,66 +29,29 @@ export const Hero: React.FC = () => {
 
   const slideContent = [
     {
-      label: copy.hero.galleryLabel1,
-      svg: (
-        <svg className="w-4/5 h-4/5 text-brand-sand/30" viewBox="0 0 100 120" fill="none" stroke="currentColor">
-          {/* Architectural rustic arches and clean modular stone grids */}
-          <rect x="10" y="10" width="80" height="100" rx="6" strokeWidth="0.75" className="stroke-brand-sand/20" />
-          
-          {/* Mallorca stone textures */}
-          <path d="M10 90C30 90 40 85 50 75C60 85 70 90 90 90" strokeWidth="1" strokeDasharray="3 3" />
-          <path d="M10 70C25 75 35 60 50 65C65 60 75 75 90 70" strokeWidth="0.75" />
-          
-          {/* Traditional Mallorcan archway silhouette */}
-          <path d="M30 110 V55 C30 40, 70 40, 70 55 V110" strokeWidth="2.5" strokeLinecap="round" className="text-brand-sand" />
-          <path d="M40 110 V65 C40 55, 60 55, 60 65 V110" strokeWidth="1.5" className="text-brand-sand/50" />
-          
-          {/* Sun/Core Strategic Circle */}
-          <circle cx="50" cy="30" r="10" stroke="var(--color-brand-sand)" strokeWidth="1.5" fill="var(--color-brand-cream)" className="opacity-90" />
-          <line x1="50" y1="12" x2="50" y2="18" strokeWidth="1" />
-          <line x1="50" y1="42" x2="50" y2="48" strokeWidth="1" />
-          <line x1="32" y1="30" x2="38" y2="30" strokeWidth="1" />
-          <line x1="62" y1="30" x2="68" y2="30" strokeWidth="1" />
-          
-          {/* Stone wall hatching */}
-          <line x1="15" y1="95" x2="25" y2="95" strokeWidth="1" />
-          <line x1="75" y1="95" x2="85" y2="95" strokeWidth="1" />
-          <line x1="20" y1="102" x2="28" y2="102" strokeWidth="0.75" />
-        </svg>
-      )
+      label: "Salvador Espriu 39, 8 Social Housing Units – Palma, Mallorca, 2018-2021",
+      image: "/projects/salvador_espriu_int1.png"
     },
     {
-      label: copy.hero.galleryLabel2,
-      svg: (
-        <svg className="w-4/5 h-4/5 text-brand-sand/30" viewBox="0 0 100 120" fill="none" stroke="currentColor">
-          {/* Botanical forestry curves & structural grid */}
-          <rect x="10" y="10" width="80" height="100" rx="6" strokeWidth="0.75" className="stroke-brand-sand/20" />
-          
-          {/* Growth Grid */}
-          <line x1="50" y1="15" x2="50" y2="105" strokeWidth="0.5" strokeDasharray="3 3" />
-          <circle cx="50" cy="50" r="35" stroke="var(--color-brand-sand)" strokeWidth="0.5" strokeDasharray="5 5" className="opacity-40" />
-
-          {/* Organic Leaf curves in gold/satin forest */}
-          <path d="M50 105C50 75 50 45 50 15" strokeWidth="2.5" strokeLinecap="round" className="text-brand-sand" />
-          
-          {/* Branch 1 */}
-          <path d="M50 85C56 78 65 72 74 70C70 78 63 84 50 89" strokeWidth="1.75" strokeLinejoin="round" fill="var(--color-brand-forest)" fillOpacity="0.8" className="text-brand-forest" />
-          {/* Branch 2 */}
-          <path d="M50 67C44 60 35 54 26 52C30 60 37 66 50 71" strokeWidth="1.75" strokeLinejoin="round" fill="var(--color-brand-sand)" fillOpacity="0.5" className="text-brand-sand" />
-          {/* Branch 3 */}
-          <path d="M50 49C56 42 65 36 74 34C70 42 63 48 50 53" strokeWidth="1.75" strokeLinejoin="round" fill="var(--color-brand-forest)" fillOpacity="0.8" className="text-brand-forest" />
-          {/* Branch 4 */}
-          <path d="M50 31C44 24 35 18 26 16C30 24 37 30 50 35" strokeWidth="1.75" strokeLinejoin="round" fill="var(--color-brand-sand)" fillOpacity="0.5" className="text-brand-sand" />
-          
-          {/* Rising Leaf Tip */}
-          <path d="M50 18C52 14 56 10 61 9C58 14 54 17 50 20" strokeWidth="1.25" strokeLinejoin="round" fill="var(--color-brand-cream)" fillOpacity="0.9" />
-        </svg>
-      )
+      label: "Salvador Espriu 39, 8 Social Housing Units – Palma, Mallorca, 2018-2021",
+      image: "/projects/salvador_espriu_int2.png"
+    },
+    {
+      label: "Salvador Espriu 39, 8 Social Housing Units – Palma, Mallorca, 2018-2021",
+      image: "/projects/salvador_espriu_ext.png"
+    },
+    {
+      label: "Olivera 62, 48 Social Housing Units – Magalluf-Calvià, Mallorca, LLOC Arquitectes, 2018-2022",
+      image: "/projects/olivera_ext.png"
+    },
+    {
+      label: "Pere Matutes 72, 24 Social Housing Units – Ibiza, 08014 Arquitectura, 2018-2022",
+      image: "/projects/pere_matutes_int.png"
     }
   ];
 
-  const handleNext = () => setActiveSlide((prev) => (prev === 0 ? 1 : 0));
-  const handlePrev = () => setActiveSlide((prev) => (prev === 1 ? 0 : 1));
+  const handleNext = () => setActiveSlide((prev) => (prev === slideContent.length - 1 ? 0 : prev + 1));
+  const handlePrev = () => setActiveSlide((prev) => (prev === 0 ? slideContent.length - 1 : prev - 1));
 
   return (
     <section
@@ -190,7 +153,7 @@ export const Hero: React.FC = () => {
                 {copy.hero.galleryTitle}
               </span>
               <span className="font-sans text-[10px] text-slate-400 font-semibold">
-                {activeSlide + 1} / 2
+                {activeSlide + 1} / {slideContent.length}
               </span>
             </div>
 
@@ -203,13 +166,17 @@ export const Hero: React.FC = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeSlide}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.98 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.35 }}
-                  className="absolute inset-0 flex items-center justify-center"
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 flex items-center justify-center bg-brand-cream"
                 >
-                  {slideContent[activeSlide].svg}
+                  <img
+                    src={slideContent[activeSlide].image}
+                    alt={slideContent[activeSlide].label}
+                    className="w-full h-full object-cover object-center"
+                  />
                 </motion.div>
               </AnimatePresence>
               

@@ -26,15 +26,25 @@ export const WhatsAppButton: React.FC = () => {
   };
 
   const getWhatsappUrl = () => {
-    const text = language === 'ca'
-      ? "Hola Cris, em agradaria agendar un cafè de consultoria estratègica per a la meva empresa."
-      : "Hola Cris, me gustaría agendar un café de consultoría estratégica para mi empresa.";
+    const textMap = {
+      es: "Hola Cris, me gustaría agendar un café de consultoría estratégica para mi empresa.",
+      ca: "Hola Cris, em agradaria agendar un cafè de consultoria estratègica per a la meva empresa.",
+      en: "Hello Cris, I would like to schedule a strategic consulting coffee for my company.",
+      it: "Ciao Cris, vorrei programmare un caffè di consulenza strategica per la mia azienda.",
+      de: "Hallo Cris, ich würde gerne einen strategischen Beratungskaffee für mein Unternehmen vereinbaren."
+    };
+    const text = textMap[language] || textMap.es;
     return `https://wa.me/34654126634?text=${encodeURIComponent(text)}`;
   };
 
-  const tooltipText = language === 'ca'
-    ? "Agendem un cafè estratègic? Parlem de manera directa."
-    : "¿Agendamos un café estratégico? Hablemos de forma directa.";
+  const tooltipTextMap = {
+    es: "¿Agendamos un café estratégico? Hablemos de forma directa.",
+    ca: "Agendem un cafè estratègic? Parlem de manera directa.",
+    en: "Shall we schedule a strategic coffee? Let's talk directly.",
+    it: "Fissiamo un caffè strategico? Parliamo direttamente.",
+    de: "Sollen wir einen strategischen Kaffee vereinbaren? Lassen Sie uns direkt sprechen."
+  };
+  const tooltipText = tooltipTextMap[language] || tooltipTextMap.es;
 
   return (
     <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3 pointer-events-none">

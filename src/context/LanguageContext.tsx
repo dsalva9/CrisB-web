@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { data, TranslationData } from '../data';
 
-export type Language = 'es' | 'ca';
+export type Language = 'es' | 'ca' | 'en' | 'it' | 'de';
 
 interface LanguageContextType {
   language: Language;
@@ -12,7 +12,7 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-const supportedLanguages: Language[] = ['es', 'ca'];
+const supportedLanguages: Language[] = ['es', 'ca', 'en', 'it', 'de'];
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(() => {
@@ -22,7 +22,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     }
     const browserLang = navigator.language.slice(0, 2).toLowerCase() as Language;
     if (supportedLanguages.includes(browserLang)) {
-      return browserLang;
+      return browserLang as Language;
     }
     return 'es';
   });
