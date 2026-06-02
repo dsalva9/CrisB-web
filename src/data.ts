@@ -632,7 +632,7 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
     },
     hero: {
       tag: "Firm Mentorship & Consulting",
-      title: "I accompany companies, institutions and executive teams to organize, activate and make strategic and impactful projects viable.",
+      title: "I accompany companies, institutions and executive teams to organize, activate and make viable strategic and impactful projects.",
       highlight1: "organize",
       highlight2: "activate",
       highlight3: "make viable",

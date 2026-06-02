@@ -7,6 +7,56 @@ export const Hero: React.FC = () => {
   const { copy } = useTranslation();
   const [activeSlide, setActiveSlide] = useState<number>(0);
 
+  const renderTitle = () => {
+    const { title, highlight1, highlight2, highlight3 } = copy.hero;
+    const terms = [highlight1, highlight2, highlight3].filter(Boolean);
+    if (terms.length === 0) return title;
+
+    const escapedTerms = terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const regex = new RegExp(`(${escapedTerms.join('|')})`, 'g');
+    const parts = title.split(regex);
+
+    const renderedParts: React.ReactNode[] = [];
+    for (let i = 0; i < parts.length; i++) {
+      const part = parts[i];
+      const isHighlight = terms.includes(part);
+
+      if (isHighlight) {
+        const nextPart = parts[i + 1];
+        const hasTrailingComma = typeof nextPart === 'string' && nextPart.startsWith(',');
+
+        if (hasTrailingComma) {
+          parts[i + 1] = nextPart.substring(1); // strip the comma
+          renderedParts.push(
+            <span key={i} className="inline-block whitespace-nowrap">
+              <span className="font-semibold text-brand-forest relative inline-block">
+                {part}
+                <span className="absolute bottom-1 left-0 w-full h-[2px] bg-brand-sand rounded-full" />
+              </span>
+              ,
+            </span>
+          );
+        } else {
+          const isHighlight3 = part === highlight3;
+          renderedParts.push(
+            <span
+              key={i}
+              className={`font-semibold text-brand-forest relative inline-block ${isHighlight3 ? 'whitespace-nowrap' : ''}`}
+            >
+              {part}
+              <span className="absolute bottom-1 left-0 w-full h-[2px] bg-brand-sand rounded-full" />
+            </span>
+          );
+        }
+      } else {
+        if (part) {
+          renderedParts.push(<span key={i}>{part}</span>);
+        }
+      }
+    }
+    return renderedParts;
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -85,22 +135,7 @@ export const Hero: React.FC = () => {
             variants={itemVariants}
             className="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-forest font-light tracking-wide leading-[1.3] text-left uppercase"
           >
-            Acompaño a empresas, instituciones y equipos directivos a{' '}
-            <span className="font-semibold text-brand-forest relative inline-block">
-              {copy.hero.highlight1}
-              <span className="absolute bottom-1 left-0 w-full h-[2px] bg-brand-sand rounded-full" />
-            </span>
-            ,{' '}
-            <span className="font-semibold text-brand-forest relative inline-block">
-              {copy.hero.highlight2}
-              <span className="absolute bottom-1 left-0 w-full h-[2px] bg-brand-sand rounded-full" />
-            </span>{' '}
-            y{' '}
-            <span className="font-semibold text-brand-forest relative inline-block whitespace-nowrap">
-              {copy.hero.highlight3}
-              <span className="absolute bottom-1 left-0 w-full h-[2px] bg-brand-sand rounded-full" />
-            </span>{' '}
-            proyectos estratégicos y con impacto.
+            {renderTitle()}
           </motion.h1>
 
           <motion.p
@@ -158,7 +193,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Slider view */}
-            <div className="flex-1 flex items-center justify-center relative bg-brand-forest rounded-2xl overflow-hidden my-3">
+            <div className="flex-1 flex items-center justify-center relative bg-white rounded-2xl overflow-hidden my-3">
               
               {/* Slate shading layer */}
               <div className="absolute inset-0 bg-brand-forest/10 z-10 pointer-events-none" />
