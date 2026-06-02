@@ -37,10 +37,10 @@ export const Navbar: React.FC = () => {
             : 'h-24 bg-transparent border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto h-full px-4 sm:px-8 lg:px-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto h-full px-4 sm:px-8 lg:px-8 xl:px-16 flex items-center justify-between gap-4 xl:gap-8">
           
           {/* Logo Brand */}
-          <a href="#inicio" className="flex items-center gap-3 group">
+          <a href="#inicio" className="flex items-center gap-3 group flex-shrink-0">
             {/* Elegant Botanical Twig SVG Logo */}
             <svg
               className="w-6 h-6 text-brand-forest group-hover:text-brand-sand transition-colors duration-300 fill-none stroke-current"
@@ -59,12 +59,12 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8 flex-shrink-0">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="font-sans text-xs tracking-[0.1em] text-slate-600 hover:text-brand-forest transition-colors uppercase font-semibold"
+                className="font-sans text-[11px] xl:text-xs tracking-[0.1em] text-slate-600 hover:text-brand-forest transition-colors uppercase font-semibold whitespace-nowrap"
               >
                 {item.label}
               </a>
@@ -72,7 +72,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Header Actions */}
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
             
             {/* Elegant Language Pill Toggle */}
             <div className="flex items-center border border-slate-200 rounded-full p-0.5 bg-slate-100/50 relative">
@@ -80,12 +80,12 @@ export const Navbar: React.FC = () => {
                 <button
                   key={lang}
                   onClick={() => changeLanguage(lang)}
-                  className={`w-11 py-1.5 font-sans text-xs font-bold rounded-full transition-all cursor-pointer relative z-10 ${
+                  className={`w-9 py-1 font-sans text-[10px] font-bold rounded-full transition-all cursor-pointer relative z-10 ${
                     language === lang
                       ? 'text-white'
                       : 'text-slate-500 hover:text-brand-forest'
                   }`}
-                  style={{ minHeight: '44px' }}
+                  style={{ minHeight: '36px' }}
                 >
                   {lang.toUpperCase()}
                 </button>
@@ -96,8 +96,8 @@ export const Navbar: React.FC = () => {
                 layout
                 className="absolute top-0.5 bottom-0.5 rounded-full bg-brand-forest shadow-sm z-0"
                 style={{
-                  width: '44px',
-                  left: `${(['es', 'ca', 'en', 'it', 'de'] as Language[]).indexOf(language) * 44 + 2}px`
+                  width: '36px',
+                  left: `${(['es', 'ca', 'en', 'it', 'de'] as Language[]).indexOf(language) * 36 + 2}px`
                 }}
                 transition={{ type: 'spring', stiffness: 380, damping: 30 }}
               />
@@ -108,8 +108,8 @@ export const Navbar: React.FC = () => {
               href="#contacto"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center font-sans text-xs font-bold uppercase tracking-widest px-5 py-3 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white rounded-lg transition-all duration-300 cursor-pointer"
-              style={{ minHeight: '44px' }} // compliance tap size
+              className="inline-flex items-center justify-center font-sans text-[11px] xl:text-xs font-bold uppercase tracking-widest px-4 xl:px-5 py-2.5 xl:py-3 border border-brand-forest text-brand-forest hover:bg-brand-forest hover:text-white rounded-lg transition-all duration-300 cursor-pointer whitespace-nowrap"
+              style={{ minHeight: '38px' }} // compliance tap size
             >
               {copy.nav.cta}
             </motion.a>
