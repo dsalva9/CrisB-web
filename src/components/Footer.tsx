@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           {/* Navigation Links */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="font-serif text-[10px] font-bold tracking-widest text-brand-sand uppercase">
-              {copy.services.pillars[4] ? t('footer_col1_title') : 'Navegación'}
+              {t('footer_col1_title')}
             </h4>
             <ul className="space-y-2.5">
               <li>
@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           {/* Services Quicklist */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="font-serif text-[10px] font-bold tracking-widest text-brand-sand uppercase">
-              {copy.services.pillars[4] ? t('footer_col2_title') : 'Servicios'}
+              {t('footer_col2_title')}
             </h4>
             <ul className="space-y-2.5">
               {copy.services.pillars.map((pillar) => (
@@ -95,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal }) => {
           {/* Contact Details */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="font-serif text-[10px] font-bold tracking-widest text-brand-sand uppercase">
-              {copy.services.pillars[4] ? t('footer_col3_title') : 'Contacto'}
+              {t('footer_col3_title')}
             </h4>
             <ul className="space-y-2.5">
               <li>

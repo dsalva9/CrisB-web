@@ -139,6 +139,9 @@ export interface TranslationData {
     };
   };
   copyright: string;
+  footer_col1_title: string;
+  footer_col2_title: string;
+  footer_col3_title: string;
 }
 
 export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
@@ -379,7 +382,10 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
         p3: "El único elemento técnico que se guarda en su dispositivo es una variable de configuración de idioma en el almacenamiento local de su navegador (localStorage) con la clave 'preferred-language'. Esta variable almacena únicamente su preferencia de idioma seleccionada (por ejemplo, 'es' o 'ca') para que la web se cargue en su idioma de forma predeterminada cuando regrese."
       }
     },
-    copyright: "© 2026 CrisBallester.com. Todos los derechos reservados. Desarrollo web por <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>."
+    copyright: "© 2026 CrisBallester.com. Todos los derechos reservados. Desarrollo web por <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>.",
+    footer_col1_title: "Navegación",
+    footer_col2_title: "Servicios",
+    footer_col3_title: "Contacto"
   },
   ca: {
     nav: {
@@ -618,7 +624,10 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
         p3: "L'únic element tècnic que es guarda al seu dispositiu és una variable de configuració d'idioma a l'emmagatzematge local del seu navegador (localStorage) amb la clau 'preferred-language'. Questa variable emmagatzema únicament la seva preferència d'idioma seleccionada (por exemple, 'es' o 'ca') perquè la web es carregui en el seu idioma de forma predeterminada quan torni."
       }
     },
-    copyright: "© 2026 CrisBallester.com. Tots els drets reservats. Desenvolupament web per <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>."
+    copyright: "© 2026 CrisBallester.com. Tots els drets reservats. Desenvolupament web per <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>.",
+    footer_col1_title: "Navegació",
+    footer_col2_title: "Serveis",
+    footer_col3_title: "Contacte"
   },
   en: {
     nav: {
@@ -857,7 +866,10 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
         p3: "The only technical element saved on your device is a language configuration variable in your browser's local storage (localStorage) under the key 'preferred-language'. This variable only stores your selected language preference (e.g. 'es' or 'ca') so that the web loads in your language by default when you return."
       }
     },
-    copyright: "© 2026 CrisBallester.com. All rights reserved. Web development by <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>."
+    copyright: "© 2026 CrisBallester.com. All rights reserved. Web development by <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>.",
+    footer_col1_title: "Navigation",
+    footer_col2_title: "Services",
+    footer_col3_title: "Contact"
   },
   it: {
     nav: {
@@ -1096,7 +1108,10 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
         p3: "L'unico elemento tecnico salvato sul dispositivo è una variabile di configurazione della lingua nella memoria locale del browser (localStorage) con la chiave 'preferred-language'. Questa variabile memorizza solo la preferenza di lingua selezionata (ad es. 'es' o 'ca') affinché il sito si carichi nella vostra lingua per impostazione predefinita al vostro ritorno."
       }
     },
-    copyright: "© 2026 CrisBallester.com. Tutti i diritti riservati. Sviluppo web da <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>."
+    copyright: "© 2026 CrisBallester.com. Tutti i diritti riservati. Sviluppo web da <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>.",
+    footer_col1_title: "Navigazione",
+    footer_col2_title: "Servizi",
+    footer_col3_title: "Contatto"
   },
   de: {
     nav: {
@@ -1335,6 +1350,9 @@ export const data: Record<'es' | 'ca' | 'en' | 'it' | 'de', TranslationData> = {
         p3: "Das einzige technische Element, das auf Ihrem Gerät gespeichert wird, ist eine Sprachkonfigurationsvariable im lokalen Speicher Ihres Browsers (localStorage) unter dem Schlüssel 'preferred-language'. Diese Variable speichert nur Ihre gewählte Sprachpräferenz (z.B. 'es' oder 'ca'), damit die Website bei Ihrer Rückkehr standardmäßig in Ihrer Sprache geladen wird."
       }
     },
-    copyright: "© 2026 CrisBallester.com. Alle Rechte vorbehalten. Webentwicklung durch <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>."
+    copyright: "© 2026 CrisBallester.com. Alle Rechte vorbehalten. Webentwicklung durch <a href='https://websmallorca.es/' target='_blank' class='hover:text-white transition-colors underline'>Webs Mallorca</a>.",
+    footer_col1_title: "Navigation",
+    footer_col2_title: "Dienstleistungen",
+    footer_col3_title: "Kontakt"
   }
 };
