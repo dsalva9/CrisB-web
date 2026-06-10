@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useTranslation } from '../context/LanguageContext';
-import { Compass, Zap, TrendingUp, Layers, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Compass, Zap, TrendingUp, Layers, CheckCircle2 } from 'lucide-react';
 
 export const PainPoints: React.FC = () => {
   const { copy } = useTranslation();
@@ -98,17 +98,14 @@ export const PainPoints: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Síntoma de Alerta (Warning box with a soft sand gold background) */}
-                <div className="w-full bg-[#fbf8f2] border-l-2 border-brand-sand rounded-r-xl p-4 flex gap-3 items-start relative z-10">
-                  <AlertTriangle size={14} className="text-brand-sand mt-0.5 flex-shrink-0" />
-                  <div className="space-y-0.5">
-                    <span className="font-sans text-[9px] font-bold tracking-wider text-brand-sand uppercase block">
-                      {copy.challenges.warningLabel}
-                    </span>
-                    <p className="font-sans text-xs text-[#8c6d3d] leading-relaxed font-light">
-                      {item.symptom}
-                    </p>
-                  </div>
+                {/* Síntoma de Alerta (Executive Quote Style) */}
+                <div className="w-full border-l border-brand-sand/35 pl-4 flex flex-col gap-0.5 relative z-10">
+                  <span className="font-sans text-[9px] font-bold tracking-wider text-brand-sand uppercase block">
+                    {copy.challenges.warningLabel}
+                  </span>
+                  <p className="font-sans text-xs text-slate-500 leading-relaxed font-light">
+                    {item.symptom}
+                  </p>
                 </div>
 
                 {/* Propuesta Estratégica (Cris's strategic solution) */}
