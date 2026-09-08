@@ -26,6 +26,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
             label={part.text}
             onClick={onSelectTrigger}
             isActive={activeTrigger === part.trigger}
+            previewData={manifesto.dossiers[part.trigger]}
           />
         );
       }
@@ -36,18 +37,18 @@ export const Manifesto: React.FC<ManifestoProps> = ({
   return (
     <section className="relative min-h-[calc(100vh-96px)] flex flex-col justify-center px-4 sm:px-8 lg:px-16 py-16 sm:py-24 max-w-6xl mx-auto">
       {/* Dynamic ambient organic glow */}
-      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[radial-gradient(circle,var(--color-brand-sand)/8%,transparent_70%)] pointer-events-none blur-2xl" />
-      <div className="absolute bottom-10 -left-20 w-96 h-96 bg-[radial-gradient(circle,var(--color-brand-forest)/5%,transparent_70%)] pointer-events-none blur-2xl" />
+      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-[radial-gradient(circle,var(--color-brand-sand)/10%,transparent_70%)] pointer-events-none blur-3xl" />
+      <div className="absolute bottom-10 -left-20 w-96 h-96 bg-[radial-gradient(circle,var(--color-brand-forest)/7%,transparent_70%)] pointer-events-none blur-3xl" />
 
       {/* Top Status & Context Pill */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8 sm:mb-12 text-[11px] font-sans text-slate-500 font-medium"
+        className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10 sm:mb-14 text-[11px] font-sans text-slate-500 font-medium"
       >
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest/5 text-brand-forest border border-brand-forest/15 uppercase tracking-widest text-[10px] font-bold">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+        <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-brand-forest/5 text-brand-forest border border-brand-forest/15 uppercase tracking-widest text-[10px] font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
           Consultoría de Firma
         </span>
 
@@ -64,7 +65,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="space-y-8 sm:space-y-12 text-brand-forest/90 font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[42px] leading-[1.5] sm:leading-[1.45] tracking-[-0.01em] font-light"
+        className="space-y-10 sm:space-y-14 text-brand-forest font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[44px] xl:text-[48px] leading-[1.4] sm:leading-[1.38] tracking-[-0.015em] font-light"
       >
         {/* Paragraph 1: The Bottlenecks */}
         <p className="max-w-5xl">

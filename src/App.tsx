@@ -52,15 +52,15 @@ export const App: React.FC = () => {
   const activeDossierItem = activeTrigger ? manifesto.dossiers[activeTrigger] : null;
 
   return (
-    <div className="min-h-screen bg-brand-cream text-brand-charcoal selection:bg-brand-forest selection:text-brand-sand font-sans antialiased overflow-x-hidden flex flex-col justify-between">
+    <div className="min-h-screen bg-travertine-canvas text-brand-charcoal selection:bg-brand-forest selection:text-brand-sand font-sans antialiased overflow-x-hidden flex flex-col justify-between">
       {/* Minimalist Executive Header with Awards Ribbon & Language Switch */}
       <Navbar
         onOpenDossier={handleOpenDossier}
         onOpenBriefing={() => handleOpenBriefing()}
       />
 
-      {/* Main Executive Manifesto Hero Canvas */}
-      <main className="flex-1 flex flex-col justify-center">
+      {/* Main Executive Manifesto Hero Canvas with subtle spatial scaling */}
+      <main className={`flex-1 flex flex-col justify-center transition-all duration-300 ${activeTrigger || isBriefingOpen || isLegalOpen ? 'scale-[0.99] filter blur-[0.5px] opacity-90' : 'scale-100 opacity-100'}`}>
         <Manifesto
           onSelectTrigger={handleOpenDossier}
           activeTrigger={activeTrigger}
