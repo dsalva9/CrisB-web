@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useTranslation } from '../context/LanguageContext';
 import { TriggerKey, DossierItem } from '../manifestoData';
 import { TriggerWord } from './TriggerWord';
-import { Award, Compass, ArrowRight, ShieldCheck, AlertTriangle, Sparkles, MapPin } from 'lucide-react';
+import { Award, Compass, ArrowRight, ShieldCheck, AlertTriangle, Sparkles, MapPin, X } from 'lucide-react';
 
 interface ManifestoProps {
   onSelectTrigger: (key: TriggerKey) => void;
@@ -28,10 +28,17 @@ export const Manifesto: React.FC<ManifestoProps> = ({
   activeTrigger
 }) => {
   const { manifesto } = useTranslation();
-  const [hoveredTrigger, setHoveredTrigger] = useState<TriggerKey | null>(null);
+  // Keep the last hovered key as active so moving the mouse to the side viewer doesn't revert it
+  const [activePreviewKey, setActivePreviewKey] = useState<TriggerKey | null>(null);
 
-  // Active or hovered dossier preview
-  const previewKey = hoveredTrigger || activeTrigger;
+  const handleTriggerHover = (key: TriggerKey | null) => {
+    if (key) {
+      setActivePreviewKey(key);
+    }
+  };
+
+  // Active or hovered dossier preview (modal activeTrigger overrides previewKey)
+  const previewKey = activeTrigger || activePreviewKey;
   const activeDossier: DossierItem | undefined = previewKey ? manifesto.dossiers[previewKey] : undefined;
 
   const renderParagraph = (parts: typeof manifesto.p1) => {
@@ -43,8 +50,9 @@ export const Manifesto: React.FC<ManifestoProps> = ({
             triggerKey={part.trigger}
             label={part.text}
             onClick={onSelectTrigger}
-            onHover={setHoveredTrigger}
+            onHover={handleTriggerHover}
             isActive={activeTrigger === part.trigger}
+            isInspected={activePreviewKey === part.trigger}
             previewData={manifesto.dossiers[part.trigger]}
           />
         );
@@ -120,6 +128,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
             <div className="flex items-center gap-3">
               <button
                 onClick={() => onSelectTrigger('awards')}
+                onMouseEnter={() => setActivePreviewKey('awards')}
                 className="text-brand-forest hover:text-brand-sand font-semibold uppercase tracking-wider text-[10.5px] underline transition-colors cursor-pointer"
               >
                 {manifesto.linkAwards}
@@ -127,6 +136,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
               <span>·</span>
               <button
                 onClick={() => onSelectTrigger('projects')}
+                onMouseEnter={() => setActivePreviewKey('projects')}
                 className="text-brand-forest hover:text-brand-sand font-semibold uppercase tracking-wider text-[10.5px] underline transition-colors cursor-pointer"
               >
                 {manifesto.linkProjects}
@@ -152,16 +162,27 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                   transition={{ duration: 0.22, ease: 'easeOut' }}
                   className="space-y-4"
                 >
-                  {/* Category Tag & Metric pill */}
+                  {/* Category Tag, Metric pill & Dismiss/Reset button */}
                   <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-3">
-                    <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-brand-sand truncate">
-                      {activeDossier.tag}
-                    </span>
-                    {activeDossier.metric && (
-                      <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-forest/10 text-brand-forest">
-                        {activeDossier.metric.value}
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-brand-sand truncate">
+                        {activeDossier.tag}
                       </span>
-                    )}
+                      {activeDossier.metric && (
+                        <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded-full bg-brand-forest/10 text-brand-forest flex-shrink-0">
+                          {activeDossier.metric.value}
+                        </span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setActivePreviewKey(null)}
+                      className="text-slate-400 hover:text-brand-forest p-1 rounded-full hover:bg-slate-100 transition-colors cursor-pointer flex-shrink-0"
+                      aria-label="Cerrar vista previa"
+                      title="Volver al perfil general"
+                    >
+                      <X size={13} />
+                    </button>
                   </div>
 
                   {/* High-res Image / Architectural Viewport */}
