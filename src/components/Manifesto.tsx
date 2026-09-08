@@ -94,12 +94,12 @@ export const Manifesto: React.FC<ManifestoProps> = ({
               {renderParagraph(manifesto.p1)}
             </p>
 
-            {/* Paragraph 2: The Interventions */}
+            {/* Paragraph 2: Proof & Identity */}
             <p>
               {renderParagraph(manifesto.p2)}
             </p>
 
-            {/* Paragraph 3: Proof & Identity */}
+            {/* Paragraph 3: The Interventions */}
             <p>
               {renderParagraph(manifesto.p3)}
             </p>

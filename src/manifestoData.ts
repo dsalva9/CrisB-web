@@ -126,15 +126,6 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "." }
     ],
     p2: [
-      { text: "Acompaño a empresas e instituciones como " },
-      { text: "Interim CFO", trigger: "interim" },
-      { text: " y consultora de firma, estructurando modelos de " },
-      { text: "sostenibilidad rentable", trigger: "sustainability" },
-      { text: " y liderando la articulación técnica de " },
-      { text: "consorcios y alianzas público-privadas", trigger: "consortia" },
-      { text: "." }
-    ],
-    p3: [
       { text: "Soy " },
       { text: "Cris Ballester", trigger: "cris" },
       { text: ". Economista galardonada con el " },
@@ -145,6 +136,15 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "+50M€ en proyectos e infraestructura", trigger: "projects" },
       { text: ". Con sede en " },
       { text: "Mallorca", trigger: "location" },
+      { text: "." }
+    ],
+    p3: [
+      { text: "Acompaño a empresas e instituciones como " },
+      { text: "Interim CFO", trigger: "interim" },
+      { text: " y consultora de firma, estructurando modelos de " },
+      { text: "sostenibilidad rentable", trigger: "sustainability" },
+      { text: " y liderando la articulación técnica de " },
+      { text: "consorcios y alianzas público-privadas", trigger: "consortia" },
       { text: "." }
     ],
     dossiers: {
@@ -416,15 +416,6 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "." }
     ],
     p2: [
-      { text: "Acompanyo empreses i institucions com a " },
-      { text: "Interim CFO", trigger: "interim" },
-      { text: " i consultora de firma, estructurant models de " },
-      { text: "sostenibilitat rendible", trigger: "sustainability" },
-      { text: " i liderant l'articulació tècnica de " },
-      { text: "consorcis i aliances públic-privades", trigger: "consortia" },
-      { text: "." }
-    ],
-    p3: [
       { text: "Sóc " },
       { text: "Cris Ballester", trigger: "cris" },
       { text: ". Economista guardonada amb el " },
@@ -435,6 +426,15 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "+50M€ en projectes i infraestructura", trigger: "projects" },
       { text: ". Amb seu a " },
       { text: "Mallorca", trigger: "location" },
+      { text: "." }
+    ],
+    p3: [
+      { text: "Acompanyo empreses i institucions com a " },
+      { text: "Interim CFO", trigger: "interim" },
+      { text: " i consultora de firma, estructurant models de " },
+      { text: "sostenibilitat rendible", trigger: "sustainability" },
+      { text: " i liderant l'articulació tècnica de " },
+      { text: "consorcis i aliances públic-privades", trigger: "consortia" },
       { text: "." }
     ],
     dossiers: {
@@ -706,15 +706,6 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "." }
     ],
     p2: [
-      { text: "I partner with executive teams and institutions as an " },
-      { text: "Interim CFO", trigger: "interim" },
-      { text: " and signature advisor, structuring models of " },
-      { text: "profitable sustainability", trigger: "sustainability" },
-      { text: " and steering the technical delivery of " },
-      { text: "public-private consortia", trigger: "consortia" },
-      { text: "." }
-    ],
-    p3: [
       { text: "I am " },
       { text: "Cris Ballester", trigger: "cris" },
       { text: ". Economist recognized with the " },
@@ -725,6 +716,15 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "+50M€ in assets and infrastructure", trigger: "projects" },
       { text: ". Based in " },
       { text: "Mallorca", trigger: "location" },
+      { text: "." }
+    ],
+    p3: [
+      { text: "I partner with executive teams and institutions as an " },
+      { text: "Interim CFO", trigger: "interim" },
+      { text: " and signature advisor, structuring models of " },
+      { text: "profitable sustainability", trigger: "sustainability" },
+      { text: " and steering the technical delivery of " },
+      { text: "public-private consortia", trigger: "consortia" },
       { text: "." }
     ],
     dossiers: {
@@ -996,15 +996,6 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "." }
     ],
     p2: [
-      { text: "Affianco aziende e istituzioni come " },
-      { text: "Interim CFO", trigger: "interim" },
-      { text: " e consulente strategica, strutturando modelli di " },
-      { text: "sostenibilità redditizia", trigger: "sustainability" },
-      { text: " e guidando l'articolazione tecnica di " },
-      { text: "consorzi e partenariati pubblico-privati", trigger: "consortia" },
-      { text: "." }
-    ],
-    p3: [
       { text: "Sono " },
       { text: "Cris Ballester", trigger: "cris" },
       { text: ". Economista insignita del " },
@@ -1015,6 +1006,15 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "+50M€ in progetti e infrastrutture", trigger: "projects" },
       { text: ". Con sede a " },
       { text: "Maiorca", trigger: "location" },
+      { text: "." }
+    ],
+    p3: [
+      { text: "Affianco aziende e istituzioni come " },
+      { text: "Interim CFO", trigger: "interim" },
+      { text: " e consulente strategica, strutturando modelli di " },
+      { text: "sostenibilità redditizia", trigger: "sustainability" },
+      { text: " e guidando l'articolazione tecnica di " },
+      { text: "consorzi e partenariati pubblico-privati", trigger: "consortia" },
       { text: "." }
     ],
     dossiers: {
@@ -1286,15 +1286,6 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "." }
     ],
     p2: [
-      { text: "Ich begleite Unternehmen und Institutionen als " },
-      { text: "Interim CFO", trigger: "interim" },
-      { text: " und Strategieberaterin, strukturiere Modelle für " },
-      { text: "rentable Nachhaltigkeit", trigger: "sustainability" },
-      { text: " und steuere die technische Umsetzung von " },
-      { text: "öffentlich-privaten Partnerschaften", trigger: "consortia" },
-      { text: "." }
-    ],
-    p3: [
       { text: "Ich bin " },
       { text: "Cris Ballester", trigger: "cris" },
       { text: ". Ökonomin, ausgezeichnet mit dem " },
@@ -1305,6 +1296,15 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "+50 Mio. € in Infrastruktur und Projekten", trigger: "projects" },
       { text: ". Mit Sitz auf " },
       { text: "Mallorca", trigger: "location" },
+      { text: "." }
+    ],
+    p3: [
+      { text: "Ich begleite Unternehmen und Institutionen als " },
+      { text: "Interim CFO", trigger: "interim" },
+      { text: " und Strategieberaterin, strukturiere Modelle für " },
+      { text: "rentable Nachhaltigkeit", trigger: "sustainability" },
+      { text: " und steuere die technische Umsetzung von " },
+      { text: "öffentlich-privaten Partnerschaften", trigger: "consortia" },
       { text: "." }
     ],
     dossiers: {
