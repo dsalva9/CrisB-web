@@ -84,15 +84,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDossier, onOpenBriefing })
 
         {/* Right Nav Actions */}
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* Awards Badge (Tablet / Desktop <1280px) */}
+          {/* Awards Badge (Mobile / Tablet / Desktop <1280px) */}
           <button
             type="button"
             onClick={() => onOpenDossier('awards')}
-            className="hidden sm:flex xl:hidden items-center gap-1 p-1.5 sm:p-2 rounded-xl text-brand-forest hover:bg-brand-forest/5 transition-colors cursor-pointer"
-            aria-label="Ver premios"
+            className="flex xl:hidden items-center gap-1 p-1.5 sm:p-2 rounded-xl text-brand-forest hover:bg-brand-forest/5 transition-colors cursor-pointer"
+            aria-label={manifesto.awardsNavText}
           >
             <Award size={16} className="text-brand-sand" />
-            <span className="hidden md:inline text-[10px] font-sans font-bold uppercase tracking-wider">Premios</span>
+            <span className="hidden md:inline text-[10px] font-sans font-bold uppercase tracking-wider">{manifesto.awardsNavText}</span>
           </button>
 
           {/* Desktop Language Selector (Hidden on Mobile) */}

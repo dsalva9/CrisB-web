@@ -71,14 +71,14 @@ export const Manifesto: React.FC<ManifestoProps> = ({
           >
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-forest/5 text-brand-forest border border-brand-forest/15 uppercase tracking-widest text-[9.5px] font-bold">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-              Consultoría de Firma
+              {manifesto.taglineSignature}
             </span>
 
             <span className="hidden sm:inline-block text-slate-300">|</span>
 
             <span className="inline-flex items-center gap-1.5 text-slate-500 tracking-wider uppercase text-[10px]">
               <Compass size={12} className="text-brand-sand" />
-              Palma de Mallorca · 39°34'N 2°39'E
+              Mallorca · 39°34'N 2°39'E
             </span>
           </motion.div>
 
@@ -114,7 +114,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
           >
             <span className="flex items-center gap-2 text-[11px] sm:text-xs">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-sand flex-shrink-0" />
-              Pulsa en cualquier término resaltado para desplegar su dossier.
+              {manifesto.helperHint}
             </span>
 
             <div className="flex items-center gap-3">
@@ -122,14 +122,14 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                 onClick={() => onSelectTrigger('awards')}
                 className="text-brand-forest hover:text-brand-sand font-semibold uppercase tracking-wider text-[10.5px] underline transition-colors cursor-pointer"
               >
-                Premios Internacionales
+                {manifesto.linkAwards}
               </button>
               <span>·</span>
               <button
                 onClick={() => onSelectTrigger('projects')}
                 className="text-brand-forest hover:text-brand-sand font-semibold uppercase tracking-wider text-[10.5px] underline transition-colors cursor-pointer"
               >
-                Galería +50M€
+                {manifesto.linkProjects}
               </button>
             </div>
           </motion.div>
@@ -220,7 +220,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                     onClick={() => onSelectTrigger(activeDossier.id)}
                     className="w-full py-2.5 px-4 rounded-xl bg-brand-forest hover:bg-brand-forest/90 text-white font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
                   >
-                    <span>Abrir Dossier Completo</span>
+                    <span>{manifesto.viewfinderOpenDossier}</span>
                     <ArrowRight size={13} />
                   </button>
                 </motion.div>
@@ -245,13 +245,13 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                     </div>
                     <div className="space-y-0.5">
                       <span className="font-mono text-[9.5px] font-bold text-brand-sand tracking-widest uppercase block">
-                        Directora & Consultora de Firma
+                        {manifesto.viewfinderTitle}
                       </span>
                       <h3 className="font-serif text-lg font-semibold text-brand-forest leading-tight">
                         Cris Ballester
                       </h3>
                       <p className="font-sans text-[11px] text-slate-500 font-light leading-snug">
-                        Ex-Directora General de Vivienda y Arquitectura · Economista
+                        {manifesto.viewfinderSubtitle}
                       </p>
                     </div>
                   </div>
@@ -265,7 +265,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                     <div className="flex items-center justify-between text-brand-sand text-[10px] font-mono tracking-widest uppercase font-bold">
                       <span className="flex items-center gap-1.5">
                         <Award size={13} />
-                        Reconocimiento Internacional
+                        {manifesto.viewfinderHonors}
                       </span>
                       <ArrowRight size={11} className="group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -286,7 +286,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                         +50M€
                       </span>
                       <span className="font-sans text-[9px] text-slate-500 leading-none">
-                        Licitados
+                        {manifesto.viewfinderStat1}
                       </span>
                     </div>
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
@@ -294,7 +294,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                         15+
                       </span>
                       <span className="font-sans text-[9px] text-slate-500 leading-none">
-                        Promociones
+                        {manifesto.viewfinderStat2}
                       </span>
                     </div>
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
@@ -302,7 +302,7 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                         100%
                       </span>
                       <span className="font-sans text-[9px] text-slate-500 leading-none">
-                        Justificados
+                        {manifesto.viewfinderStat3}
                       </span>
                     </div>
                   </div>
@@ -311,9 +311,9 @@ export const Manifesto: React.FC<ManifestoProps> = ({
                   <div className="pt-2 flex items-center justify-between text-[10.5px] font-sans text-slate-400 border-t border-slate-100">
                     <span className="flex items-center gap-1.5">
                       <Sparkles size={12} className="text-brand-sand" />
-                      Inspección en tiempo real
+                      {manifesto.viewfinderLiveBadge}
                     </span>
-                    <span>Pasa el cursor sobre el texto</span>
+                    <span>{manifesto.viewfinderHoverHint}</span>
                   </div>
                 </motion.div>
               )}

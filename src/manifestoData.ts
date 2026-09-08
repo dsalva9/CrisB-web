@@ -56,10 +56,24 @@ export interface ManifestoParagraphPart {
 }
 
 export interface ManifestoData {
+  taglineSignature: string;
+  awardsNavText: string;
   awardsBadge: string;
   ctaBriefing: string;
   dossierClose: string;
   dossierBackToManifesto: string;
+  helperHint: string;
+  linkAwards: string;
+  linkProjects: string;
+  viewfinderTitle: string;
+  viewfinderSubtitle: string;
+  viewfinderHonors: string;
+  viewfinderStat1: string;
+  viewfinderStat2: string;
+  viewfinderStat3: string;
+  viewfinderLiveBadge: string;
+  viewfinderHoverHint: string;
+  viewfinderOpenDossier: string;
   p1: ManifestoParagraphPart[];
   p2: ManifestoParagraphPart[];
   p3: ManifestoParagraphPart[];
@@ -84,10 +98,24 @@ export interface ManifestoData {
 
 export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoData> = {
   es: {
+    taglineSignature: "Consultoría de Firma",
+    awardsNavText: "Premios",
     awardsBadge: "Royal Academy Prize '24 · OBEL Award '26",
     ctaBriefing: "Agendar Briefing",
     dossierClose: "Cerrar",
     dossierBackToManifesto: "Volver al Manifiesto",
+    helperHint: "Pulsa en cualquier término resaltado para desplegar su dossier.",
+    linkAwards: "Premios Internacionales",
+    linkProjects: "Galería +50M€",
+    viewfinderTitle: "Directora & Consultora de Firma",
+    viewfinderSubtitle: "Ex-Directora General de Vivienda y Arquitectura · Economista",
+    viewfinderHonors: "Reconocimiento Internacional",
+    viewfinderStat1: "Licitados",
+    viewfinderStat2: "Promociones",
+    viewfinderStat3: "Justificados",
+    viewfinderLiveBadge: "Inspección en tiempo real",
+    viewfinderHoverHint: "Pasa el cursor sobre el texto",
+    viewfinderOpenDossier: "Abrir Dossier Completo",
     p1: [
       { text: "La mayoría de las organizaciones no se detienen por falta de visión. Se bloquean por " },
       { text: "inercia en la ejecución", trigger: "execution" },
@@ -116,7 +144,7 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: " por transformar más de " },
       { text: "+50M€ en proyectos e infraestructura", trigger: "projects" },
       { text: ". Con sede en " },
-      { text: "Palma de Mallorca", trigger: "location" },
+      { text: "Mallorca", trigger: "location" },
       { text: "." }
     ],
     dossiers: {
@@ -320,10 +348,10 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       location: {
         id: "location",
         tag: "Coordinadas Directivas",
-        title: "Palma de Mallorca",
-        subtitle: "Despacho privado, presencia sobre el terreno y cobertura nacional",
+        title: "Mallorca",
+        subtitle: "Despacho privado en Santa Eugènia y cobertura nacional",
         symptomTitle: "COBERTURA",
-        symptom: "Sede central en Palma / Santa Eugènia (Mallorca). Intervenciones in-office y acompañamiento directivo directo en Baleares, Madrid, Barcelona y proyectos internacionales.",
+        symptom: "Sede central en Santa Eugènia (Mallorca). Intervenciones in-office y acompañamiento directivo directo en Baleares, Madrid, Barcelona y proyectos internacionales.",
         solutionTitle: "CANALES PRIVADOS",
         solution: "Para preservar la confidencialidad de tu organización, puedes solicitar un briefing estratégico o contactar de forma directa a través de nuestros canales ejecutivos.",
         milestonesTitle: "CONTACTO DIRECTO",
@@ -360,10 +388,24 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
     }
   },
   ca: {
+    taglineSignature: "Consultoria de Firma",
+    awardsNavText: "Premis",
     awardsBadge: "Royal Academy Prize '24 · OBEL Award '26",
     ctaBriefing: "Agendar Briefing",
     dossierClose: "Tancar",
     dossierBackToManifesto: "Tornar al Manifest",
+    helperHint: "Prem sobre qualsevol terme ressaltat per desplegar el seu dossier.",
+    linkAwards: "Premis Internacionals",
+    linkProjects: "Galeria +50M€",
+    viewfinderTitle: "Directora i Consultora de Firma",
+    viewfinderSubtitle: "Ex-Directora General d'Habitatge i Arquitectura · Economista",
+    viewfinderHonors: "Reconeixement Internacional",
+    viewfinderStat1: "Licitats",
+    viewfinderStat2: "Promocions",
+    viewfinderStat3: "Justificats",
+    viewfinderLiveBadge: "Inspecció en temps real",
+    viewfinderHoverHint: "Passa el cursor sobre el text",
+    viewfinderOpenDossier: "Obrir Dossier Complet",
     p1: [
       { text: "La majoria d'organitzacions no s'aturen per manca de visió. Es bloquegen per " },
       { text: "inèrcia en l'execució", trigger: "execution" },
@@ -392,7 +434,7 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: " per transformar més de " },
       { text: "+50M€ en projectes i infraestructura", trigger: "projects" },
       { text: ". Amb seu a " },
-      { text: "Palma de Mallorca", trigger: "location" },
+      { text: "Mallorca", trigger: "location" },
       { text: "." }
     ],
     dossiers: {
@@ -596,10 +638,10 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       location: {
         id: "location",
         tag: "Coordenades Directives",
-        title: "Palma de Mallorca",
-        subtitle: "Despatx privat, presència sobre el terreny i cobertura nacional",
+        title: "Mallorca",
+        subtitle: "Despatx privat a Santa Eugènia i cobertura nacional",
         symptomTitle: "COBERTURA",
-        symptom: "Seu central a Palma / Santa Eugènia (Mallorca). Intervencions in-office i acompanyament directiu directe a Balears, Madrid, Barcelona i projectes internacionals.",
+        symptom: "Seu central a Santa Eugènia (Mallorca). Intervencions in-office i acompanyament directiu directe a Balears, Madrid, Barcelona i projectes internacionals.",
         solutionTitle: "CANALS PRIVATS",
         solution: "Per preservar la confidencialitat de la teva organització, pots sol·licitar un briefing estratègic o contactar de forma directa a través dels nostres canals executius.",
         milestonesTitle: "CONTACTE DIRECTE",
@@ -636,10 +678,24 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
     }
   },
   en: {
+    taglineSignature: "Signature Advisory",
+    awardsNavText: "Awards",
     awardsBadge: "Royal Academy Prize '24 · OBEL Award '26",
     ctaBriefing: "Schedule Briefing",
     dossierClose: "Close",
     dossierBackToManifesto: "Return to Manifesto",
+    helperHint: "Tap or click any highlighted term to view its dossier.",
+    linkAwards: "International Awards",
+    linkProjects: "Gallery +50M€",
+    viewfinderTitle: "Managing Director & Signature Advisor",
+    viewfinderSubtitle: "Former Director General of Housing & Architecture · Economist",
+    viewfinderHonors: "Global Honors & Recognition",
+    viewfinderStat1: "Procured",
+    viewfinderStat2: "Developments",
+    viewfinderStat3: "Audited & Justified",
+    viewfinderLiveBadge: "Real-time Inspection",
+    viewfinderHoverHint: "Hover over terms in the manifesto",
+    viewfinderOpenDossier: "Open Full Dossier",
     p1: [
       { text: "Most organizations do not stall from a lack of vision. They bottleneck through " },
       { text: "execution inertia", trigger: "execution" },
@@ -668,7 +724,7 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: " for transforming over " },
       { text: "+50M€ in assets and infrastructure", trigger: "projects" },
       { text: ". Based in " },
-      { text: "Palma de Mallorca", trigger: "location" },
+      { text: "Mallorca", trigger: "location" },
       { text: "." }
     ],
     dossiers: {
@@ -872,10 +928,10 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       location: {
         id: "location",
         tag: "Executive Coordinates",
-        title: "Palma de Mallorca",
-        subtitle: "Private office, hands-on embedded presence, and national reach",
+        title: "Mallorca",
+        subtitle: "Private office in Santa Eugènia and national/international reach",
         symptomTitle: "GEOGRAPHIC COVERAGE",
-        symptom: "Headquarters in Palma / Santa Eugènia (Mallorca). In-office presence across the Balearic Islands, Madrid, Barcelona, and international assignments.",
+        symptom: "Headquarters in Santa Eugènia (Mallorca). In-office presence across the Balearic Islands, Madrid, Barcelona, and international assignments.",
         solutionTitle: "CONFIDENTIAL CHANNELS",
         solution: "To safeguard strategic confidentiality, you may initiate a structured briefing or connect directly through our direct executive channels.",
         milestonesTitle: "DIRECT CONTACT",
@@ -912,10 +968,24 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
     }
   },
   it: {
+    taglineSignature: "Consulenza di Firma",
+    awardsNavText: "Premi",
     awardsBadge: "Royal Academy Prize '24 · OBEL Award '26",
     ctaBriefing: "Prenota Briefing",
     dossierClose: "Chiudi",
     dossierBackToManifesto: "Torna al Manifesto",
+    helperHint: "Tocca o clicca qualsiasi termine evidenziato per aprire il dossier.",
+    linkAwards: "Premi Internazionali",
+    linkProjects: "Galleria +50M€",
+    viewfinderTitle: "Direttrice & Consulente di Firma",
+    viewfinderSubtitle: "Ex Direttrice Generale di Edilizia e Architettura · Economista",
+    viewfinderHonors: "Riconoscimento Internazionale",
+    viewfinderStat1: "Appaltati",
+    viewfinderStat2: "Sviluppi",
+    viewfinderStat3: "Rendicontati",
+    viewfinderLiveBadge: "Ispezione in tempo reale",
+    viewfinderHoverHint: "Passa il cursore sul testo",
+    viewfinderOpenDossier: "Apri Dossier Completo",
     p1: [
       { text: "La maggior parte delle organizzazioni non fallisce per mancanza di visione. Si blocca per " },
       { text: "inerzia nell'esecuzione", trigger: "execution" },
@@ -944,7 +1014,7 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: " per la trasformazione di oltre " },
       { text: "+50M€ in progetti e infrastrutture", trigger: "projects" },
       { text: ". Con sede a " },
-      { text: "Palma di Maiorca", trigger: "location" },
+      { text: "Maiorca", trigger: "location" },
       { text: "." }
     ],
     dossiers: {
@@ -1148,10 +1218,10 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       location: {
         id: "location",
         tag: "Coordinate Direzionali",
-        title: "Palma di Maiorca",
-        subtitle: "Studio privato, presenza diretta sul territorio e raggio nazionale",
+        title: "Maiorca",
+        subtitle: "Studio privato a Santa Eugènia e copertura nazionale",
         symptomTitle: "COPERTURA TERRITORIALE",
-        symptom: "Sede a Palma / Santa Eugènia (Maiorca). Presenza in-office e supporto esecutivo nelle Baleari, Madrid, Barcellona e a livello internazionale.",
+        symptom: "Sede a Santa Eugènia (Maiorca). Presenza in-office e supporto esecutivo nelle Baleari, Madrid, Barcellona e a livello internazionale.",
         solutionTitle: "CANALI RISERVATI",
         solution: "Per garantire la massima riservatezza aziendale, è possibile predisporre un briefing strutturato o contattarci direttamente.",
         milestonesTitle: "RECAPITI DIRETTI",
@@ -1188,10 +1258,24 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
     }
   },
   de: {
+    taglineSignature: "Signatur-Beratung",
+    awardsNavText: "Auszeichnungen",
     awardsBadge: "Royal Academy Prize '24 · OBEL Award '26",
     ctaBriefing: "Briefing Vereinbaren",
     dossierClose: "Schließen",
     dossierBackToManifesto: "Zurück zum Manifest",
+    helperHint: "Tippen oder klicken Sie auf einen hervorgehobenen Begriff, um das Dossier zu öffnen.",
+    linkAwards: "Internationale Auszeichnungen",
+    linkProjects: "Galerie +50M€",
+    viewfinderTitle: "Geschäftsführerin & Signaturberaterin",
+    viewfinderSubtitle: "Ehem. Generaldirektorin für Wohnungsbau und Architektur · Ökonomin",
+    viewfinderHonors: "Internationale Anerkennung",
+    viewfinderStat1: "Ausgeschrieben",
+    viewfinderStat2: "Projekte",
+    viewfinderStat3: "Rechtssicher Belegt",
+    viewfinderLiveBadge: "Echtzeit-Inspektion",
+    viewfinderHoverHint: "Fahren Sie mit dem Cursor über den Text",
+    viewfinderOpenDossier: "Vollständiges Dossier Öffnen",
     p1: [
       { text: "Die meisten Organisationen scheitern nicht an mangelnder Vision. Sie blockieren durch " },
       { text: "Ausführungsträgheit", trigger: "execution" },
@@ -1219,8 +1303,8 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       { text: "OBEL Award", trigger: "awards" },
       { text: " für das Management von über " },
       { text: "+50 Mio. € in Infrastruktur und Projekten", trigger: "projects" },
-      { text: ". Mit Sitz in " },
-      { text: "Palma de Mallorca", trigger: "location" },
+      { text: ". Mit Sitz auf " },
+      { text: "Mallorca", trigger: "location" },
       { text: "." }
     ],
     dossiers: {
@@ -1228,171 +1312,171 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
         id: "execution",
         tag: "Operative Diagnose",
         title: "Ausführungsträgheit",
-        subtitle: "Lösen von Blockaden in Gremien und Aktivieren umsetzungsstarker Roadmaps",
-        metric: { value: "90 Tage", label: "Operativer Umsetzungssprint" },
+        subtitle: "Auflösung von Gremienblockaden und Aktivierung von Roadmaps mit echter Traktion",
+        metric: { value: "90 Tage", label: "Operativer Traktionssprint" },
         symptomTitle: "WARNSIGNAL",
-        symptom: "Führungsentscheidungen versanden in endlosen Debatten. Strategische Ziele erreichen das mittlere Management nicht und bleiben ohne klare Meilensteine liegen.",
+        symptom: "Führungsentscheidungen verlieren sich in Endlosdebatten. Strategische Initiativen versickern, bevor sie die mittlere Führungsebene erreichen, da verbindliche Meilensteine fehlen.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Ich überführe Strategien in eine Führungs-Roadmap mit wöchentlichen Kontrollzyklen, visuellen KPIs und geschützter Fokuszeit.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich übersetze Strategie in eine operative Umsetzungs-Roadmap mit wöchentlichem Review-Rhythmus, visuellen KPIs und Schutz der Führungsressourcen vor dem Tagesgeschäft.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
-          "Ausrichtung von Vorstand, Beirat und operativen Führungskräften.",
-          "90-Tage-Priorisierungsmatrix für Hebelprojekte.",
-          "Executive Dashboards mit verbindlichen wöchentlichen Frühindikatoren."
+          "Exekutives Alignment von Führungsgremien und Management.",
+          "Priorisierungsmatrix für 90-Tage-Schlüsselprojekte.",
+          "Führungscockpits mit verbindlichen wöchentlichen Steuerungsgrößen."
         ],
         ctaText: "Roadmap Aktivieren",
         ctaAction: "briefing"
       },
       treasury: {
         id: "treasury",
-        tag: "Finanzielle Steuerung",
+        tag: "Finanzkontrolle",
         title: "Analytische Liquiditätskontrolle",
-        subtitle: "Sicherung der operativen Liquidität und Optimierung der Betriebsmarge",
-        metric: { value: "100%", label: "Transparenz über Cashflow & Marge" },
+        subtitle: "Absicherung der operativen Liquidität und Optimierung der operativen Marge",
+        metric: { value: "100%", label: "Transparenz über Marge & Cashflow" },
         symptomTitle: "WARNSIGNAL",
-        symptom: "Umsatzwachstum ohne entsprechende Liquiditätssteigerung. Expansion neuer Geschäftsbereiche ohne vorausschauende Modellrechnungen.",
+        symptom: "Umsatzwachstum schlägt sich nicht in Liquidität nieder. Neue Geschäftsfelder werden ohne fundierte Deckungsbeitragsmodelle gestartet und verbrennen unbemerkt Liquidität.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Ich analysiere Kostenstrukturen, implementiere rollierende Liquiditätsmodelle und synchronisiere Zahlungsströme mit der tatsächlichen Ertragskraft.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich analysiere Kostenstrukturen, implementiere dynamische Liquiditätsmodelle und synchronisiere Zahlungsströme mit der tatsächlichen Rentabilität.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
-          "12-monatiges rollierendes Liquiditäts- und Cashflow-Modell.",
-          "Analytische Margenprüfung je Geschäftsbereich.",
-          "Freigabeprozesse für Ausgaben und Working-Capital-Optimierung."
+          "Prädiktives 12-Monats-Liquiditätsmodell.",
+          "Deckungsbeitrags- und Margenaudit nach Geschäftsbereichen.",
+          "Freigabeprotokolle und Working-Capital-Optimierung."
         ],
-        ctaText: "Liquidität Prüfen",
+        ctaText: "Liquiditätsaudit Anfordern",
         ctaAction: "briefing"
       },
       governance: {
         id: "governance",
-        tag: "Entscheidungsgremien",
+        tag: "Entscheidungsorgane",
         title: "Ausschuss-Governance",
-        subtitle: "Unabhängige Mediation für Vorstände, Beiräte und Unternehmensnachfolgen",
-        metric: { value: "0 Reibung", label: "Prozessbasierte Mediation" },
+        subtitle: "Unabhängige Fachmediation in Beiräten, Gesellschafterkreisen und Konsortien",
+        metric: { value: "0 Reibung", label: "Prozessbasierte Fachmediation" },
         symptomTitle: "WARNSIGNAL",
-        symptom: "Konflikte in Geschäftsleitungen oder stockende Nachfolgeprozesse in Familienunternehmen aufgrund persönlicher statt sachlicher Kriterien.",
+        symptom: "Schwelende Spannungen im Management, Blockaden zwischen Partnern oder Nachfolgeprozesse in Familienunternehmen, die emotional statt sachlich geführt werden.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Ich erarbeite klare Governance-Strukturen, ordne Entscheidungskompetenzen und moderiere als neutrale Dritte verbindliche Vereinbarungen.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich strukturiere klare Governance-Prozesse, ordne Entscheidungsbefugnisse und begleite als neutrale Fachinstanz strategische Beschlussfassungen.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
           "Nachfolge- und Übergabeprotokolle für Familienunternehmen.",
-          "Geschäftsordnungen und Routinen für Management-Gremien.",
-          "Neutrale Moderation zwischen Gesellschaftern und Geschäftsführung."
+          "Geschäftsordnungen und Sitzungsroutinen für Executive Boards.",
+          "Neutrale Schlichtung und Verhandlungsführung in Joint Ventures."
         ],
-        ctaText: "Protokolle Ansehen",
+        ctaText: "Governance-Modelle Anfragen",
         ctaAction: "briefing"
       },
       interim: {
         id: "interim",
         tag: "Fraktionale Führung",
         title: "Interim CFO & Strategische Leitung",
-        subtitle: "Finanz- und Operations-Führung vor Ort auf Teilzeitbasis",
-        metric: { value: "+15 Jahre", label: "Führungserfahrung in komplexen Strukturen" },
+        subtitle: "Präsenzbasierte Finanz- und Operations-Führung auf Mandatsbasis",
+        metric: { value: "+15 Jahre", label: "Führungserfahrung in Finanzen & Institutionen" },
         symptomTitle: "EINSATZSZENARIO",
-        symptom: "Unternehmen in Umbruchsphasen (M&A, Ausgründungen, Restrukturierungen), in denen ein Vollzeit-CFO noch verfrüht oder schwer zu besetzen ist.",
+        symptom: "Unternehmen in Transformationsphasen (M&A, Carve-outs, Restrukturierungen), in denen eine Vollzeit-C-Level-Besetzung zu langsam oder unwirtschaftlich ist.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Als fractional executive übernehme ich finanzielle und operative Verantwortung im Leitungsgremium und steuere Transformationen mit hoher Verlässlichkeit.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich übernehme fraktional die Leitung für Finanzen und Operations, ordne Prioritäten und führe die Organisation mit Standards etablierter Großunternehmen.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
-          "Finanz- und Operations-Direktion auf Teilzeitbasis.",
-          "Machbarkeits- und Belastungstests für Transaktionen oder Finanzierungen.",
-          "Aufbau und Weiterentwicklung des internen Finanzteams."
+          "Teilzeit-Finanz- und Operations-Leitung auf C-Level.",
+          "Wirtschaftlichkeitsmodelle für Unternehmenstransaktionen.",
+          "Befähigung und Übergabe an interne Nachwuchskräfte."
         ],
-        ctaText: "Interim CFO Anfragen",
+        ctaText: "Interim CFO Mandat Anfragen",
         ctaAction: "briefing"
       },
       sustainability: {
         id: "sustainability",
-        tag: "Pragmatisches ESG",
-        title: "Rentable Nachhaltigkeit",
-        subtitle: "Kreislaufwirtschaft und Nachhaltigkeitskonzepte mit direktem Ertragsbeitrag",
-        metric: { value: "Echter ROI", label: "Nachhaltigkeit in der Gewinn- und Verlustrechnung" },
+        tag: "Reale Nachhaltigkeit",
+        title: "Rentable Nachhaltigkeit (ESG)",
+        subtitle: "Kreislaufwirtschaft und ESG-Standards mit messbarem Deckungsbeitrag",
+        metric: { value: "Positiver ROI", label: "Nachhaltigkeit in der Gewinn- und Verlustrechnung" },
         symptomTitle: "WARNSIGNAL",
-        symptom: "100-seitige CSR-Berichte ohne geschäftliche Relevanz, die als reine Kostenbelastung wahrgenommen werden.",
+        symptom: "Umfangreiche CSR-Berichte ohne geschäftlichen Nutzen. Investitionen in Nachhaltigkeit, die intern als reiner Kostenblock wahrgenommen werden.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Ich verankere messbare ESG-Maßnahmen im Tagesgeschäft: Kostensenkung durch Materialeffizienz, bankfähige ESG-Scorings und messbare Wertschöpfung.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich verankere ESG-Kriterien direkt in der Wertschöpfungskette: Effizienzgewinne durch Materialeinsparung, ESG-Ratings für Finanzierungen und Monetarisierung von Impact.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
-          "Wirtschaftliche Wesentlichkeitsprüfung und Ressourcenoptimierung.",
-          "ESG-Scoring für Ausschreibungen und Finanzierungspartner.",
-          "Zirkuläre Strategie gekoppelt an die operative Marge."
+          "Wesentlichkeitsanalyse und Ressourceneffizienz-Audit.",
+          "Bankfähiges ESG-Scoring für Kredite und Ausschreibungen.",
+          "Zirkuläre Strategien mit direktem Margenbeitrag."
         ],
-        ctaText: "ESG Profitabel Nutzen",
+        ctaText: "ESG Rentabel Strukturieren",
         ctaAction: "briefing"
       },
       consortia: {
         id: "consortia",
         tag: "Komplexe Allianzen",
         title: "Konsortien & ÖPP-Partnerschaften",
-        subtitle: "Technische Strukturierung, Governance und rechtssichere Mittelverwendung",
-        metric: { value: "+50 Mio. €", label: "Gemanagte Konsortialbudgets" },
+        subtitle: "Technische Strukturierung, Governance und Verwendungsnachweise",
+        metric: { value: "+50 Mio. €", label: "Verwaltete Projektbudgets" },
         symptomTitle: "WARNSIGNAL",
-        symptom: "Öffentlich-private Kooperationen und EU-Förderprogramme geraten ins Stocken, weil bürokratische Vorgaben und unternehmerische Fristen kollidieren.",
+        symptom: "Scheitern großvolumiger Kooperationen oder EU-Förderprogramme an der Schnittstelle zwischen behördlicher Bürokratie und privatwirtschaftlichen Fristen.",
         solutionTitle: "INTERVENTIONSPROTOKOLL",
-        solution: "Ich kenne beide Perspektiven aus erster Hand: Verwaltungsprozesse und wirtschaftliche Rentabilitätsansprüche. Ich führe Konsortien mit hoher Präzision.",
-        milestonesTitle: "GREIFBARE ERGEBNISSE",
+        solution: "Ich kenne beide Welten: die institutionellen Mechanismen des öffentlichen Sektors und die Rentabilitätsanforderungen von Unternehmen. Ich steuere Konsortien revisionssicher.",
+        milestonesTitle: "TANGIBLE ERGEBNISSE",
         milestones: [
-          "Finanzielle und organisatorische Strukturierung von ÖPP-Modellen.",
-          "Steuerung und prüfungssichere Dokumentation europäischer Fördermittel.",
-          "Regionale Entwicklungspläne und nachhaltiger Wohnungsbau."
+          "Rechtliche und wirtschaftliche Strukturierung von ÖPP-Modellen.",
+          "Rechtssichere Beantragung und Nachweisführung von Fördermitteln.",
+          "Strategische Regionalentwicklungsprojekte."
         ],
-        ctaText: "Allianzen Beraten",
+        ctaText: "Partnerschaften Strukturieren",
         ctaAction: "briefing"
       },
       awards: {
         id: "awards",
         tag: "Internationale Auszeichnungen",
         title: "Royal Academy Prize & OBEL Award",
-        subtitle: "Globale Anerkennung für eine Ökonomin, die öffentliche Verwaltung transformierte",
-        quote: "«Ich bin keine Architektin; ich bin Ökonomin. Diese Auszeichnungen ehren nicht nur die Gebäude, sondern die umfassende Reform des Vergabewesens, der regionalen Baustoffketten und der Wirtschaftlichkeit, die das Projekt im großen Maßstab ermöglicht hat.»",
+        subtitle: "Internationale Anerkennung für die Transformation öffentlicher Managementmodelle",
+        quote: "«Ich bin keine Architektin; ich bin Ökonomin. Die Auszeichnungen würdigen nicht allein vollendete Gebäude, sondern die systemische Neuausrichtung von öffentlicher Beschaffung, zirkulären Lieferketten und wirtschaftlicher Tragfähigkeit.»",
         awardsList: [
           {
             year: "2026",
             name: "OBEL Award — Systems' Hack",
             organization: "The Henrik Frode Obel Foundation (Kopenhagen)",
-            focus: "Internationaler Preis für die Neugestaltung und Systeminnovation im öffentlichen Wohnungsbau und der nachhaltigen Vergabe.",
+            focus: "Renommierter internationaler Preis für den systemischen Umbau des geförderten Wohnungsbaus, bioklimatischen Designs und nachhaltigen Vergabewesens.",
             link: "https://obelaward.org"
           },
           {
             year: "2024",
             name: "Royal Academy Architecture Prize",
             organization: "Royal Academy of Arts (London)",
-            focus: "Jahrespreis für Cris Ballester für ihre Führungsleistung bei dekarbonisierten und zirkulären öffentlichen Wohnungsbauprogrammen auf den Balearen.",
+            focus: "Jährliche Auszeichnung an Cris Ballester für die wegweisende Leitung dekarbonisierter und bioregionaler Wohnungsbauprogramme auf den Balearen.",
             link: "https://www.royalacademy.org.uk"
           }
         ],
-        ctaText: "Ausgezeichnete Projekte Ansehen",
+        ctaText: "Prämierte Projekte Ansehen",
         ctaAction: "projects"
       },
       projects: {
         id: "projects",
         tag: "Realisierte Infrastruktur",
-        title: "+50 Mio. € Verwaltetes Volumen",
-        subtitle: "Pionierprojekte für dekarbonisierten sozialen Wohnungsbau auf den Balearen",
+        title: "+50 Mio. € Verwaltetes Projektvolumen",
+        subtitle: "Vorzeigeprojekte des dekarbonisierten geförderten Wohnungsbaus auf den Balearen",
         projects: [
           {
             title: "Salvador Espriu 39",
-            location: "Palma de Mallorca",
+            location: "Palma, Mallorca",
             year: "2018–2021",
             image: "/projects/salvador_espriu_int1.png",
-            desc: "8 geförderte Wohnungen aus regionalem Marés-Sandstein und Holzdecken. Internationales Vorzeigemodell mit minimalem CO2-Fußabdruck."
+            desc: "8 geförderte Wohnungen aus regionalem Marés-Kalkstein und Holzkonstruktionen. Internationales Vorbild für bioklimatische Low-Carbon-Architektur."
           },
           {
             title: "Pere Matutes 72",
-            location: "Ibiza",
-            year: "2018–2022",
+            location: "Eivissa, Ibiza",
+            year: "2019–2022",
             image: "/projects/pere_matutes_int.png",
-            desc: "24 öffentliche Wohnungen mit tragenden Stampflehmwänden und passiver Belüftung, entworfen mit 08014 Arquitectura."
+            desc: "Wohnanlage mit integrierter Regenwassernutzung, lokaler Materialbeschaffung und innovativen thermischen Lüftungsschächten."
           },
           {
             title: "Olivera 62",
-            location: "Magalluf-Calvià, Mallorca",
-            year: "2018–2022",
+            location: "Magalluf, Calvià",
+            year: "2020–2023",
             image: "/projects/olivera_ext.png",
             desc: "48 geförderte Wohnungen in Zusammenarbeit mit LLOC Arquitectes mit radikaler Energieeffizienz im verdichteten Raum."
           },
           {
             title: "Salvador Espriu — Marés-Fassade",
-            location: "Palma de Mallorca",
+            location: "Palma, Mallorca",
             year: "2018–2021",
             image: "/projects/salvador_espriu_ext.png",
             desc: "Traditionelle mallorquinische Steinmetzkunst in zeitgenössischer Architektur, ausgezeichnet von der Royal Academy."
@@ -1424,10 +1508,10 @@ export const manifestoData: Record<'es' | 'ca' | 'en' | 'it' | 'de', ManifestoDa
       location: {
         id: "location",
         tag: "Führungskoordinaten",
-        title: "Palma de Mallorca",
-        subtitle: "Privates Büro, Präsenz vor Ort und überregionale Mandate",
+        title: "Mallorca",
+        subtitle: "Privates Büro in Santa Eugènia und überregionale Mandate",
         symptomTitle: "EINSATZBEREICH",
-        symptom: "Standort Palma / Santa Eugènia (Mallorca). Einsätze vor Ort auf den Balearen, in Madrid, Barcelona und international.",
+        symptom: "Standort Santa Eugènia (Mallorca). Einsätze vor Ort auf den Balearen, in Madrid, Barcelona und international.",
         solutionTitle: "VERTRAULICHE KANÄLE",
         solution: "Zur Wahrung strategischer Vertraulichkeit können Sie ein kurzes Briefing anfordern oder den direkten Kontakt wählen.",
         milestonesTitle: "DIREKTKONTAKT",

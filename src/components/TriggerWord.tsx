@@ -37,7 +37,7 @@ export const TriggerWord: React.FC<TriggerWordProps> = ({
           ? 'bg-brand-forest text-white px-1.5 py-0.5 rounded shadow-sm'
           : 'text-brand-forest underline decoration-brand-sand hover:decoration-brand-forest decoration-[2px] underline-offset-[6px] sm:underline-offset-[8px] hover:bg-brand-sand/20 px-1 -mx-1 py-0.5 rounded'
       }`}
-      aria-label={`Abrir dossier sobre ${label}`}
+      aria-label={label}
     >
       {label}
     </span>

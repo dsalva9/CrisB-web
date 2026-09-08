@@ -14,6 +14,7 @@ import {
   Send
 } from 'lucide-react';
 import { DossierItem, TriggerKey } from '../manifestoData';
+import { useTranslation } from '../context/LanguageContext';
 
 const LinkedInIcon: React.FC<{ size?: number; className?: string }> = ({ size = 14, className = "" }) => (
   <svg className={`fill-current ${className}`} style={{ width: size, height: size }} viewBox="0 0 24 24">
@@ -36,7 +37,17 @@ export const DossierModal: React.FC<DossierModalProps> = ({
   onSelectTrigger,
   onOpenBriefing
 }) => {
+  const { manifesto } = useTranslation();
   const [activeProjectIdx, setActiveProjectIdx] = useState(0);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Reset project slider index when trigger item changes
   useEffect(() => {
@@ -76,16 +87,6 @@ export const DossierModal: React.FC<DossierModalProps> = ({
       window.open(item.ctaUrl, '_blank', 'noopener,noreferrer');
     }
   };
-
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== 'undefined' ? window.innerWidth < 768 : false
-  );
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <AnimatePresence>
@@ -141,7 +142,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
             <button
               onClick={onClose}
               className="flex-shrink-0 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-brand-charcoal flex items-center justify-center transition-colors cursor-pointer"
-              aria-label="Cerrar dossier"
+              aria-label={manifesto.dossierClose}
             >
               <X size={18} />
             </button>
@@ -367,7 +368,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
           {item.ctaText && (
             <div className="p-5 sm:p-6 border-t border-slate-200/70 bg-white/90 backdrop-blur-sm flex items-center justify-between gap-4">
               <span className="font-sans text-[11px] text-slate-400 hidden sm:inline-block">
-                Intervención estratégica y de firma · Cris Ballester
+                {manifesto.taglineSignature} · Cris Ballester
               </span>
               <button
                 onClick={handleActionClick}

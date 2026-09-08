@@ -33,7 +33,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenModal, onOpenDossier }) =>
           <span className="hidden sm:inline-block text-slate-300">|</span>
           <span className="flex items-center gap-1.5 text-slate-500 text-[11px]">
             <MapPin size={13} className="text-brand-sand" />
-            Palma / Santa Eugènia · Mallorca
+            Santa Eugènia
           </span>
         </div>
 
