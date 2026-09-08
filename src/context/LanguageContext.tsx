@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { data, TranslationData } from '../data';
+import { manifestoData, ManifestoData } from '../manifestoData';
 
 export type Language = 'es' | 'ca' | 'en' | 'it' | 'de';
 
@@ -8,6 +9,7 @@ interface LanguageContextType {
   changeLanguage: (lang: Language) => void;
   t: (path: string) => string;
   copy: TranslationData;
+  manifesto: ManifestoData;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -69,9 +71,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const copy = data[language];
+  const manifesto = manifestoData[language] || manifestoData['es'];
 
   return (
-    <LanguageContext.Provider value={{ language, changeLanguage, t, copy }}>
+    <LanguageContext.Provider value={{ language, changeLanguage, t, copy, manifesto }}>
       {children}
     </LanguageContext.Provider>
   );
